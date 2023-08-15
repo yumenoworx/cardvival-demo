@@ -13,7 +13,6 @@
     {"id":{"name":"Tool_Axe","path":"sprites/Tool_Axe/Tool_Axe.yy",},"order":0,},
     {"id":{"name":"Console","path":"fonts/Console/Console.yy",},"order":0,},
     {"id":{"name":"Game_Main","path":"rooms/Game_Main/Game_Main.yy",},"order":0,},
-    {"id":{"name":"Card_Tool_Axe_Test","path":"objects/Card_Tool_Axe_Test/Card_Tool_Axe_Test.yy",},"order":1,},
     {"id":{"name":"Interface_InventoryBox","path":"sprites/Interface_InventoryBox/Interface_InventoryBox.yy",},"order":2,},
     {"id":{"name":"Interface_Cursor","path":"sprites/Interface_Cursor/Interface_Cursor.yy",},"order":3,},
     {"id":{"name":"CardSpawner_Line1","path":"objects/CardSpawner_Line1/CardSpawner_Line1.yy",},"order":0,},

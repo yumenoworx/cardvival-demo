@@ -1,2 +1,2 @@
-# cardvival
-Card based survival game ⚔️
+##Cardvival
+#Card based survival game ⚔️

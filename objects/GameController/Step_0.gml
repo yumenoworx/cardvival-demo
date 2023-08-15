@@ -1,13 +1,10 @@
 if keyboard_check_pressed(192) and !console_enabled
 {
-	show_debug_message("Console enabled.");
 	console_enabled = true;
 	input = "";
 	return;
 } else if keyboard_check_pressed(192) and console_enabled {
-	show_debug_message("Console disabled.");
 	console_enabled = false;
-	return;
 	input = "";
 }
 

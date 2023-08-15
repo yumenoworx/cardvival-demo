@@ -1,4 +1,4 @@
-if global.location == "nothing"
+if global.location == noone
 {
 	if global.prev_location == "forest" 
 	{
@@ -7,10 +7,10 @@ if global.location == "nothing"
 			instance_destroy();
 		}
 	}
+	last_location = noone;
 }
 if global.location == "forest" and last_location != "forest"
 {
-	show_debug_message("Forest!")
 	instance_create_layer(self.x, self.y, "Main", Card_LocationObject_Tree)
 	last_location = "forest";
 }

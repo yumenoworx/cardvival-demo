@@ -1,2 +1,2 @@
-global.location = "nothing";
-global.prev_location = "nothing";
+global.location = noone;
+global.prev_location = noone;

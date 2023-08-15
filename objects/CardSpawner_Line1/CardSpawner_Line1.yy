@@ -3,11 +3,11 @@
   "resourceVersion": "1.0",
   "name": "CardSpawner_Line1",
   "spriteId": {
-    "name": "Interface_CardSpawner",
-    "path": "sprites/Interface_CardSpawner/Interface_CardSpawner.yy",
+    "name": "Interface_LocationField",
+    "path": "sprites/Interface_LocationField/Interface_LocationField.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
@@ -24,7 +24,10 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [],
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
+  ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {

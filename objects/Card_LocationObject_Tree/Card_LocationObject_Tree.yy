@@ -2,7 +2,10 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "Card_LocationObject_Tree",
-  "spriteId": null,
+  "spriteId": {
+    "name": "LocationObject_Tree",
+    "path": "sprites/LocationObject_Tree/LocationObject_Tree.yy",
+  },
   "solid": false,
   "visible": true,
   "managed": true,
@@ -21,7 +24,10 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [],
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"Card_Tool_Axe","path":"objects/Card_Tool_Axe/Card_Tool_Axe.yy",},},
+  ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {

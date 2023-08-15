@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "Card_Location_Forest",
   "spriteId": {
-    "name": "Tool_Axe",
-    "path": "sprites/Tool_Axe/Tool_Axe.yy",
+    "name": "Location_Forest",
+    "path": "sprites/Location_Forest/Location_Forest.yy",
   },
   "solid": false,
   "visible": true,
@@ -32,6 +32,7 @@
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":6,"collisionObjectId":null,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":7,"eventType":6,"collisionObjectId":null,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":4,"eventType":6,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],

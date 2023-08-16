@@ -1,4 +1,6 @@
-if place_meeting(self.x, self.y, Card_Tool_Axe) and !first_damage and !Card_Tool_Axe.dragging
+if place_meeting(self.x, self.y, Card_Tool_Axe) 
+   and !first_damage 
+   and !Card_Tool_Axe.dragging
 {
 	Card_Tool_Axe.hp -= 1;
 	hp -= Card_Tool_Axe.str;
@@ -6,22 +8,28 @@ if place_meeting(self.x, self.y, Card_Tool_Axe) and !first_damage and !Card_Tool
 	first_damage = true;
 	return;
 } 
-else if place_meeting(mouse_x, mouse_y, Card_Tool_Axe) and mouse_check_button_pressed(mb_left) 
+else if place_meeting(self.x, self.y, Card_Tool_Axe) 
+     and place_meeting(mouse_x, mouse_y, Card_Tool_Axe) 
+     and mouse_check_button_pressed(mb_left) 
 {
 	hp -= Card_Tool_Axe.str;
 	Card_Tool_Axe.hp -= 1;
 }
-if self.hp <= 0
+
+if mouse_check_button_released(mb_left)
 {
-	with self
+	if self.hp <= 0
 	{
+	
+		instance_create_layer(self.x + random_range(5, 30), 
+							 self.y + random_range(5, 30), "Main", Card_Resource_Log);
 		first_damage = false;
-		hp = 15;
+		self.hp = 15;
 		instance_destroy();
-	}
-	with Card_Tool_Axe
-	{
-		x = 640;
-		y = 640;
+		with Card_Tool_Axe
+		{
+			x = 640;
+			y = 640;
+		}
 	}
 }

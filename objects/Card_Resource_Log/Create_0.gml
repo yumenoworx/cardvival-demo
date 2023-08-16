@@ -1,5 +1,4 @@
-window_set_cursor(cr_default);
+original = [0.4, 0.4];
 image_xscale = original[0];
 image_yscale = original[1];
-audio_play_sound(Card_Down, 0, false);
 dragging = false;

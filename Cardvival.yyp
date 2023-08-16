@@ -6,6 +6,7 @@
     {"id":{"name":"LocationField","path":"objects/LocationField/LocationField.yy",},"order":0,},
     {"id":{"name":"Test_Main","path":"rooms/Test_Main/Test_Main.yy",},"order":1,},
     {"id":{"name":"Card_Down","path":"sounds/Card_Down/Card_Down.yy",},"order":1,},
+    {"id":{"name":"PickUp_OpenBackpack_1","path":"sounds/PickUp_OpenBackpack_1/PickUp_OpenBackpack_1.yy",},"order":4,},
     {"id":{"name":"Axe_Kick_1","path":"sounds/Axe_Kick_1/Axe_Kick_1.yy",},"order":4,},
     {"id":{"name":"LocationObject_Tree","path":"sprites/LocationObject_Tree/LocationObject_Tree.yy",},"order":0,},
     {"id":{"name":"Axe_Kick_4","path":"sounds/Axe_Kick_4/Axe_Kick_4.yy",},"order":2,},
@@ -13,6 +14,7 @@
     {"id":{"name":"GameController","path":"objects/GameController/GameController.yy",},"order":15,},
     {"id":{"name":"Inventory","path":"objects/Inventory/Inventory.yy",},"order":1,},
     {"id":{"name":"Axe_Kick_5","path":"sounds/Axe_Kick_5/Axe_Kick_5.yy",},"order":3,},
+    {"id":{"name":"PickUp_PutInBackpack","path":"sounds/PickUp_PutInBackpack/PickUp_PutInBackpack.yy",},"order":3,},
     {"id":{"name":"Interface_CardSpawner","path":"sprites/Interface_CardSpawner/Interface_CardSpawner.yy",},"order":0,},
     {"id":{"name":"Card_LocationObject_Tree","path":"objects/Card_LocationObject_Tree/Card_LocationObject_Tree.yy",},"order":0,},
     {"id":{"name":"Tool_Axe","path":"sprites/Tool_Axe/Tool_Axe.yy",},"order":0,},
@@ -21,6 +23,7 @@
     {"id":{"name":"Game_Main","path":"rooms/Game_Main/Game_Main.yy",},"order":0,},
     {"id":{"name":"Interface_InventoryBox","path":"sprites/Interface_InventoryBox/Interface_InventoryBox.yy",},"order":2,},
     {"id":{"name":"Card_Deal","path":"sounds/Card_Deal/Card_Deal.yy",},"order":0,},
+    {"id":{"name":"Card_Resource_Log","path":"objects/Card_Resource_Log/Card_Resource_Log.yy",},"order":0,},
     {"id":{"name":"Axe_Kick_3","path":"sounds/Axe_Kick_3/Axe_Kick_3.yy",},"order":1,},
     {"id":{"name":"Interface_Cursor","path":"sprites/Interface_Cursor/Interface_Cursor.yy",},"order":3,},
     {"id":{"name":"Card_Location_Forest","path":"objects/Card_Location_Forest/Card_Location_Forest.yy",},"order":1,},
@@ -28,8 +31,9 @@
     {"id":{"name":"CardSpawner_Line1","path":"objects/CardSpawner_Line1/CardSpawner_Line1.yy",},"order":0,},
     {"id":{"name":"Card_Tool_Axe","path":"objects/Card_Tool_Axe/Card_Tool_Axe.yy",},"order":0,},
     {"id":{"name":"ButtonField","path":"objects/ButtonField/ButtonField.yy",},"order":1,},
-    {"id":{"name":"Card_Resource_Log","path":"objects/Card_Resource_Log/Card_Resource_Log.yy",},"order":0,},
+    {"id":{"name":"Inventory_README","path":"notes/Inventory_README/Inventory_README.yy",},"order":2,},
     {"id":{"name":"Interface_LocationField","path":"sprites/Interface_LocationField/Interface_LocationField.yy",},"order":1,},
+    {"id":{"name":"PickUp_OpenBackpack_2","path":"sounds/PickUp_OpenBackpack_2/PickUp_OpenBackpack_2.yy",},"order":5,},
     {"id":{"name":"Inventory_QuickAccess_Controller","path":"objects/Inventory_QuickAccess_Controller/Inventory_QuickAccess_Controller.yy",},"order":0,},
   ],
   "Options": [
@@ -87,7 +91,9 @@
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","isScaled":true,"compressFormat":"bz2","autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,},
   ],
-  "IncludedFiles": [],
+  "IncludedFiles": [
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"IncludedFile1","CopyToMask":-1,"filePath":"","parent":{"name":"Inventory","path":"folders/Objects/Inventory.yy",},},
+  ],
   "MetaData": {
     "IDEVersion": "2022.8.1.36",
   },

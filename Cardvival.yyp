@@ -18,6 +18,7 @@
     {"id":{"name":"GameController","path":"objects/GameController/GameController.yy",},"order":18,},
     {"id":{"name":"Tool_Axe","path":"sprites/Tool_Axe/Tool_Axe.yy",},"order":0,},
     {"id":{"name":"Console","path":"fonts/Console/Console.yy",},"order":0,},
+    {"id":{"name":"Border","path":"objects/Border/Border.yy",},"order":1,},
     {"id":{"name":"Button_Play","path":"objects/Button_Play/Button_Play.yy",},"order":0,},
     {"id":{"name":"Game_Main","path":"rooms/Game_Main/Game_Main.yy",},"order":0,},
     {"id":{"name":"Interface_InventoryBox","path":"sprites/Interface_InventoryBox/Interface_InventoryBox.yy",},"order":2,},
@@ -89,9 +90,7 @@
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","isScaled":true,"compressFormat":"bz2","autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,},
   ],
-  "IncludedFiles": [
-    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"IncludedFile1","CopyToMask":-1,"filePath":"","parent":{"name":"Inventory","path":"folders/Objects/Inventory.yy",},},
-  ],
+  "IncludedFiles": [],
   "MetaData": {
     "IDEVersion": "2022.8.1.36",
   },

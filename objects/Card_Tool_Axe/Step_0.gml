@@ -40,3 +40,12 @@ if global.html5_build and mouse_check_button_released(mb_left)
 		audio_play_sound(Card_Down, 0, false);
 	}
 }
+
+if place_meeting(self.x, self.y, Border)
+{
+	can_move = false;
+	x = xprevious;
+	y = yprevious;
+} else {
+	can_move = true;
+}

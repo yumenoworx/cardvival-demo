@@ -18,6 +18,7 @@
     {"id":{"name":"GameController","path":"objects/GameController/GameController.yy",},"order":18,},
     {"id":{"name":"Tool_Axe","path":"sprites/Tool_Axe/Tool_Axe.yy",},"order":0,},
     {"id":{"name":"Console","path":"fonts/Console/Console.yy",},"order":0,},
+    {"id":{"name":"Resource_Log","path":"sprites/Resource_Log/Resource_Log.yy",},"order":0,},
     {"id":{"name":"Border","path":"objects/Border/Border.yy",},"order":1,},
     {"id":{"name":"Button_Play","path":"objects/Button_Play/Button_Play.yy",},"order":0,},
     {"id":{"name":"Game_Main","path":"rooms/Game_Main/Game_Main.yy",},"order":0,},

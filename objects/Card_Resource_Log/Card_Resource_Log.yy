@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "Card_Resource_Log",
   "spriteId": {
-    "name": "Tool_Axe",
-    "path": "sprites/Tool_Axe/Tool_Axe.yy",
+    "name": "Resource_Log",
+    "path": "sprites/Resource_Log/Resource_Log.yy",
   },
   "solid": false,
   "visible": true,

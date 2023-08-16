@@ -4,19 +4,18 @@
   "name": "Cardvival",
   "resources": [
     {"id":{"name":"LocationField","path":"objects/LocationField/LocationField.yy",},"order":0,},
-    {"id":{"name":"Test_Main","path":"rooms/Test_Main/Test_Main.yy",},"order":1,},
     {"id":{"name":"Card_Down","path":"sounds/Card_Down/Card_Down.yy",},"order":1,},
     {"id":{"name":"PickUp_OpenBackpack_1","path":"sounds/PickUp_OpenBackpack_1/PickUp_OpenBackpack_1.yy",},"order":4,},
     {"id":{"name":"Axe_Kick_1","path":"sounds/Axe_Kick_1/Axe_Kick_1.yy",},"order":4,},
     {"id":{"name":"LocationObject_Tree","path":"sprites/LocationObject_Tree/LocationObject_Tree.yy",},"order":0,},
     {"id":{"name":"Axe_Kick_4","path":"sounds/Axe_Kick_4/Axe_Kick_4.yy",},"order":2,},
     {"id":{"name":"Location_Forest","path":"sprites/Location_Forest/Location_Forest.yy",},"order":0,},
-    {"id":{"name":"GameController","path":"objects/GameController/GameController.yy",},"order":15,},
     {"id":{"name":"Inventory","path":"objects/Inventory/Inventory.yy",},"order":1,},
     {"id":{"name":"Axe_Kick_5","path":"sounds/Axe_Kick_5/Axe_Kick_5.yy",},"order":3,},
     {"id":{"name":"PickUp_PutInBackpack","path":"sounds/PickUp_PutInBackpack/PickUp_PutInBackpack.yy",},"order":3,},
     {"id":{"name":"Interface_CardSpawner","path":"sprites/Interface_CardSpawner/Interface_CardSpawner.yy",},"order":0,},
     {"id":{"name":"Card_LocationObject_Tree","path":"objects/Card_LocationObject_Tree/Card_LocationObject_Tree.yy",},"order":0,},
+    {"id":{"name":"GameController","path":"objects/GameController/GameController.yy",},"order":18,},
     {"id":{"name":"Tool_Axe","path":"sprites/Tool_Axe/Tool_Axe.yy",},"order":0,},
     {"id":{"name":"Console","path":"fonts/Console/Console.yy",},"order":0,},
     {"id":{"name":"Button_Play","path":"objects/Button_Play/Button_Play.yy",},"order":0,},
@@ -60,7 +59,6 @@
   },
   "RoomOrderNodes": [
     {"roomId":{"name":"Game_Main","path":"rooms/Game_Main/Game_Main.yy",},},
-    {"roomId":{"name":"Test_Main","path":"rooms/Test_Main/Test_Main.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Backgrounds","folderPath":"folders/Backgrounds.yy","order":12,},

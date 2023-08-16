@@ -1,2 +1,1 @@
-console_enabled = false;
-input = "";
+global.html5_build = false;

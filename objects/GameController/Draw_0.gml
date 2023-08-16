@@ -1,6 +1,2 @@
-draw_set_font(Console)
-
-if console_enabled
-{
-	draw_text(self.x, self.y, "Scene ID: " + input);
-}
+draw_set_font(Console);
+draw_text(self.x+10, self.y+10, "Carvival! Test build");

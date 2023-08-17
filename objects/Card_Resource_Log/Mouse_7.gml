@@ -4,3 +4,7 @@ x += scaled_size[0] - original_size[0];
 y += scaled_size[1] - original_size[1];
 audio_play_sound(PickUp_PutInBackpack, 0, false);
 instance_destroy();
+_nameItem = "Log";
+_num = 1;
+_maxNum = 5;
+_sprite = Resource_Log;

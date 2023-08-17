@@ -29,10 +29,10 @@ if global.location == "forest"
 					x = 640;
 					y = 640;
 				}
+				alarm[0] = room_speed * 10;
 				self.killed = true;
 			}
 		}
-		alarm[0] = room_speed * 3;
 	}
 }
 else

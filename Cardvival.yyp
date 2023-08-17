@@ -12,6 +12,7 @@
     {"id":{"name":"Object11","path":"objects/Object11/Object11.yy",},"order":6,},
     {"id":{"name":"Location_Forest","path":"sprites/Location_Forest/Location_Forest.yy",},"order":0,},
     {"id":{"name":"Axe_Kick_5","path":"sounds/Axe_Kick_5/Axe_Kick_5.yy",},"order":3,},
+    {"id":{"name":"Inventory","path":"objects/Inventory/Inventory.yy",},"order":1,},
     {"id":{"name":"PickUp_PutInBackpack","path":"sounds/PickUp_PutInBackpack/PickUp_PutInBackpack.yy",},"order":3,},
     {"id":{"name":"Interface_CardSpawner","path":"sprites/Interface_CardSpawner/Interface_CardSpawner.yy",},"order":0,},
     {"id":{"name":"Card_LocationObject_Tree","path":"objects/Card_LocationObject_Tree/Card_LocationObject_Tree.yy",},"order":0,},
@@ -20,6 +21,7 @@
     {"id":{"name":"Console","path":"fonts/Console/Console.yy",},"order":0,},
     {"id":{"name":"Resource_Log","path":"sprites/Resource_Log/Resource_Log.yy",},"order":0,},
     {"id":{"name":"Border","path":"objects/Border/Border.yy",},"order":1,},
+    {"id":{"name":"Inventory_QuickItemAccess","path":"objects/Inventory_QuickItemAccess/Inventory_QuickItemAccess.yy",},"order":2,},
     {"id":{"name":"Button_Play","path":"objects/Button_Play/Button_Play.yy",},"order":0,},
     {"id":{"name":"Game_Main","path":"rooms/Game_Main/Game_Main.yy",},"order":0,},
     {"id":{"name":"Interface_InventoryBox","path":"sprites/Interface_InventoryBox/Interface_InventoryBox.yy",},"order":2,},
@@ -81,6 +83,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Locations","folderPath":"folders/Textures/Locations.yy","order":3,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Resources","folderPath":"folders/Textures/Resources.yy","order":4,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tools","folderPath":"folders/Textures/Tools.yy","order":5,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Inventory","folderPath":"folders/Objects/Inventory.yy","order":8,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},

@@ -9,10 +9,10 @@ if global.location == "forest"
 		hp -= Card_Tool_Axe.str;
 		first_damage = true;
 		return;
-	} 
+	}
 	else if place_meeting(self.x, self.y, Card_Tool_Axe) 
 	and place_meeting(mouse_x, mouse_y, Card_Tool_Axe) 
-	and mouse_check_button_pressed(mb_left)
+	and mouse_check_button_released(mb_left)
 	and self.hp > 0
 	{
 		hp -= Card_Tool_Axe.str;
@@ -22,10 +22,6 @@ if global.location == "forest"
 		audio_stop_sound(Axe_Kick_4);
 		audio_stop_sound(Axe_Kick_5);
 		audio_play_sound(choose(Axe_Kick_1, Axe_Kick_2, Axe_Kick_3, Axe_Kick_4, Axe_Kick_5), 0, false);
-	}
-
-	if place_meeting(self.x, self.y, Card_Tool_Axe) and place_meeting(mouse_x, mouse_y, Card_Tool_Axe) and mouse_check_button_released(mb_left)
-	{
 		if self.hp <= 0
 		{
 			if !self.killed
@@ -41,8 +37,4 @@ if global.location == "forest"
 			}
 		}
 	}
-}
-else
-{
-	visible = false;
 }

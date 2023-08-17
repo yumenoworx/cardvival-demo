@@ -9,9 +9,8 @@ audio_play_sound(Card_Down, 0, false);
 
 if place_meeting(self.x, self.y, LocationField)
 {
-	nearest = instance_nearest(self.x, self.y, LocationField);
-	self.x = nearest.x;
-	self.y = nearest.y;
+	self.x = LocationField.x;
+	self.y = LocationField.y;
 }
 
 audio_play_sound(Card_Down, 0, false);

@@ -38,3 +38,7 @@ if global.location == "forest"
 		}
 	}
 }
+else
+{
+	visible = false;
+}

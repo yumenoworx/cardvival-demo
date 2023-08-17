@@ -1,6 +1,6 @@
 draw_set_font(Console)
 draw_set_alpha(0.5);
-if self.hp <= 0
+if self.hp <= 0 and self.killed
 {
 	draw_sprite_ext(LocationObject_Tree, LocationObject_Tree, self.x, self.y, 0.4, 0.4, 0, -1, 0.7);
 	return;

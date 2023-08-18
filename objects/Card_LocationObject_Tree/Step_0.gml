@@ -29,8 +29,8 @@ if global.location == "forest"
 				instance_create_layer(self.x, self.y, "Main", Card_Resource_Log);
 				with Card_Tool_Axe
 				{
-					x = 640;
-					y = 640;
+					x = room_width / 2 - sprite_width / 2
+					y = room_height - (sprite_height+64) / 2;
 				}
 				alarm[0] = room_speed * 10;
 				self.killed = true;

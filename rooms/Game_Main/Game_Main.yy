@@ -65,8 +65,6 @@
     {"name":"inst_14006761","path":"rooms/Game_Main/Game_Main.yy",},
     {"name":"inst_612AF4B5","path":"rooms/Game_Main/Game_Main.yy",},
     {"name":"inst_7060B22F","path":"rooms/Game_Main/Game_Main.yy",},
-    {"name":"inst_612AF4B5","path":"rooms/Game_Main/Game_Main.yy",},
-    {"name":"inst_7060B22F","path":"rooms/Game_Main/Game_Main.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

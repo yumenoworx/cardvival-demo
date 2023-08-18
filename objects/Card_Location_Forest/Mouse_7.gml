@@ -1,5 +1,6 @@
 window_set_cursor(cr_handpoint);
 
+
 image_xscale = original[0];
 image_yscale = original[1];
 x += scaled_size[0] - original_size[0];

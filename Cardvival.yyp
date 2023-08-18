@@ -69,6 +69,7 @@
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Backgrounds","folderPath":"folders/Backgrounds.yy","order":12,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Fonts","folderPath":"folders/Fonts.yy","order":13,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"group2","folderPath":"folders/group2.yy","order":15,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Objects","folderPath":"folders/Objects.yy","order":9,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Inventory","folderPath":"folders/Objects/Inventory.yy","order":8,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"LocationObjects","folderPath":"folders/Objects/LocationObjects.yy","order":1,},
@@ -78,6 +79,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Spawners","folderPath":"folders/Objects/Spawners.yy","order":3,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tools","folderPath":"folders/Objects/Tools.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Rooms","folderPath":"folders/Rooms.yy","order":11,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Scripts","folderPath":"folders/Scripts.yy","order":14,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sounds","folderPath":"folders/Sounds.yy","order":10,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Card","folderPath":"folders/Sounds/Card.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Axe","folderPath":"folders/Sounds/Card/Axe.yy","order":2,},
@@ -87,8 +89,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Locations","folderPath":"folders/Textures/Locations.yy","order":3,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Resources","folderPath":"folders/Textures/Resources.yy","order":4,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tools","folderPath":"folders/Textures/Tools.yy","order":5,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Scripts","folderPath":"folders/Scripts.yy","order":14,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"group2","folderPath":"folders/group2.yy","order":15,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},

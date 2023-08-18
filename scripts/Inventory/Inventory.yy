@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "Script1",
+  "name": "Inventory",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
     "name": "Scripts",
-    "path": "folders/Rooms/Scripts.yy",
+    "path": "folders/Scripts.yy",
   },
 }

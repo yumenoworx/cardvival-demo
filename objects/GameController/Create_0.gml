@@ -7,7 +7,7 @@ global.spawner_count = 6;
 
 for (i = 0; i < global.arraySize; i++){
 	global.invert[i] = false;
-	instance_create_depth(room_width/2-192+64*i,room_height-64,0,cellsinv).cell=i; 
+	instance_create_depth(room_width/2-64*global.arraySize/2+64*i,room_height-64,0,cellsinv).cell=i; 
 }
 
 instance_create_layer(0, 0, "Main", LocationField);

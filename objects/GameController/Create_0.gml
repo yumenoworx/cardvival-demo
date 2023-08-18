@@ -18,11 +18,17 @@ with LocationField
 	x = room_width/2-sprite_width/2
 	y = room_height/2-sprite_height/2-123;
 }
-for (i = 1; i < global.spawner_count; i++)
+spawner = instance_create_layer(0, 0, "Main", CardSpawner)
+with spawner
 {
-	spawner = instance_create_layer(0, 0, "Main", CardSpawner)
-	spawner.image_xscale = 0.4;
-	spawner.image_yscale = 0.4;
-	spawner.x = room_width/2-spawner.sprite_width/2*global.spawner_count-32;
-	spawner.y = room_height/2-spawner.sprite_height/2+LocationField.y+32;
+	image_xscale = 0.4;
+	image_yscale = 0.4;
+	x = room_width/2-sprite_width/2-sprite_width*global.spawner_count/2-32;
+	y = room_height/2-sprite_height/2+LocationField.y+32;
+	for (i = 0; i < global.spawner_count; i++)
+	{
+		furthest = instance_furthest(x, y, CardSpawner)
+		n = furthest.x + sprite_width + 32;
+		instance_create_layer(n, y, "Main", CardSpawner)
+	}
 }

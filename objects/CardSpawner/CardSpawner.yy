@@ -7,7 +7,7 @@
     "path": "sprites/Interface_LocationField/Interface_LocationField.yy",
   },
   "solid": false,
-  "visible": false,
+  "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,

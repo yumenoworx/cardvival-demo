@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "CardSpawner_Line1",
+  "name": "CardSpawner",
   "spriteId": {
     "name": "Interface_LocationField",
     "path": "sprites/Interface_LocationField/Interface_LocationField.yy",

@@ -2,7 +2,7 @@ if global.location == "forest"
 {
 	visible = true;
 	if place_meeting(self.x, self.y, Card_Tool_Axe) 
-	and !first_damage 
+	and hp == 100 
 	and !Card_Tool_Axe.dragging
 	{
 		audio_play_sound(choose(Axe_Kick_1, Axe_Kick_2, Axe_Kick_3, Axe_Kick_4, Axe_Kick_5), 0, false)

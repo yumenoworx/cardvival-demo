@@ -1,4 +1,4 @@
-# Cardvival! (DEV builds)
+# Cardvival!
 > Please note that DEV builds are highly unstable!
 
 **Сard-based** survival game created by three funny guys using the GameMaker Studio 2.

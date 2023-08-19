@@ -1,9 +1,3 @@
-if global.location != "forest"
-{
-	instance_deactivate_object(Card_Tool_Axe);
-
-}
-
 if place_meeting(self.x, self.y, Border)
 {
 	x = xprevious;

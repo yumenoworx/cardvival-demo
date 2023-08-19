@@ -5,5 +5,5 @@ original_size = [152, 204.80];
 scaled_size = [155.80, 209,92];
 dragging = false;
 can_move = true;
-depth = 0;
+depth = 1;
 show_debug_message("created")

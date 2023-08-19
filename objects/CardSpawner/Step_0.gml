@@ -4,5 +4,4 @@ if global.location == "forest"
 	{
 		instance_create_layer(self.x, self.y, "Main", Card_LocationObject_Tree);
 	}
-	instance_activate_object(Card_Tool_Axe);
 }

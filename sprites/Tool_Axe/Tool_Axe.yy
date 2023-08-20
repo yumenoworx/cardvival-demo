@@ -92,6 +92,6 @@
   },
   "parent": {
     "name": "Tools",
-    "path": "folders/Textures/Tools.yy",
+    "path": "folders/Sprites/Tools.yy",
   },
 }

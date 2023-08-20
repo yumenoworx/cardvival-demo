@@ -68,6 +68,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Interface",
-    "path": "folders/Textures/Interface.yy",
+    "path": "folders/Sprites/Interface.yy",
   },
 }

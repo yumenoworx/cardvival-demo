@@ -1,6 +1,6 @@
 if object != noone and type != "resource"
 {
-	window_set_cursor(cr_default);
+	audio_play_sound(Card_Deal, 0, false);
 	object = instance_create_layer(x, y, "Main", object);
 	with object
 	{

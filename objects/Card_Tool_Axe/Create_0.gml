@@ -4,5 +4,6 @@ image_yscale = original[1];
 original_size = [152, 204.80];
 scaled_size = [155.80, 209,92];
 dragging = false;
+atacked = false;
 self.str = 3;
 self.depth = 0;

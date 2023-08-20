@@ -3,6 +3,9 @@ global.player_str = 3;
 global.player_def = 0;
 global.arraySize = 6;
 global.spawner_count = 6;
+easter_egg = false;
+alarmed = false;
+depth = -1;
 
 //for (i = 0; i < global.arraySize; i++){
 //	global.invert[i] = false;

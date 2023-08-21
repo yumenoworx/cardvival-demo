@@ -12,5 +12,8 @@ if global.inventory != inventory_previous
 		slots_arr[i].object = global.inventory[i][$ "object"];
 		slots_arr[i].qty = global.inventory[i][$ "qty"];
 		slots_arr[i].type = global.inventory[i][$ "type"];
+		ini_open("save.me")
+		ini_write_string("Character", "Inventory", json_stringify(global.inventory))
+		ini_close();
 	}
 }

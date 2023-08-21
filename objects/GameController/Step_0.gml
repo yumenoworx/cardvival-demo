@@ -6,7 +6,7 @@ if easter_egg
 	draw_text(irandom_range(0, room_width), irandom_range(0, room_height), "Kill me please!!!")
 	if !alarmed
 	{
-		alarm[0] = room_speed * 10;
+		alarm[0] = room_speed * 1;
 		alarmed = true;
 	}
 }

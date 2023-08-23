@@ -36,7 +36,3 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 			$Sprite.scale.x = 0.32
 			$Sprite.scale.y = 0.32
 			dragging = false
-
-
-func _on_Area2D_body_entered(body):
-	print("лол")

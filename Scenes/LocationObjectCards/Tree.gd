@@ -1,13 +1,21 @@
-extends StaticBody2D
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+extends Area2D
+
+
+var saved_body = null
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
+
+func _process(delta):
+	if saved_body != null and saved_body.dragging == false:
+		saved_body.position.x = position.x
+		saved_body.position.y = position.y
+
+func _on_Tree_body_entered(body):
+	saved_body = body
 
 
-func _on_Area2D_body_entered(body):
-	print("пиписька")
+func _on_Tree_body_exited(body):
+	saved_body = null

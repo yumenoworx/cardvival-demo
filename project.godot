@@ -12,7 +12,6 @@ config_version=4
 
 config/name="Cardvival"
 run/main_scene="res://Scenes/Main.tscn"
-boot_splash/show_image=false
 boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://icon.png"
 
@@ -26,6 +25,7 @@ window/per_pixel_transparency/allowed=true
 [global]
 
 color=false
+modify=false
 
 [gui]
 

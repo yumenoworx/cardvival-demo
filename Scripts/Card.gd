@@ -25,11 +25,6 @@ func _process(delta):
 			dragging = true
 	if cooldown:
 		cooldown = false
-		return
-		cooldown_time -= delta
-		if cooldown_time == 0:
-			cooldown_time = 3
-			cooldown = false
 	
 
 

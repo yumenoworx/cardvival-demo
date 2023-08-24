@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Cards/Card.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/LocationObjectCards/Tree.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Location.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 61, 82 )
@@ -9,18 +10,19 @@ extents = Vector2( 61, 82 )
 [node name="Node2D" type="Node2D"]
 
 [node name="Location" type="Node2D" parent="."]
+script = ExtResource( 3 )
 
 [node name="Tree" parent="Location" instance=ExtResource( 2 )]
-position = Vector2( 684, 404 )
+position = Vector2( 680, 400 )
 
 [node name="Tree2" parent="Location" instance=ExtResource( 2 )]
-position = Vector2( 823, 404 )
+position = Vector2( 832, 400 )
 
 [node name="Tree3" parent="Location" instance=ExtResource( 2 )]
-position = Vector2( 530, 404 )
+position = Vector2( 536, 400 )
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 681, 601 )
+position = Vector2( 680, 592 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 shape = SubResource( 2 )

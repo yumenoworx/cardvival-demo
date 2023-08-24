@@ -33,5 +33,6 @@ func _on_Tree_body_entered(body):
 
 
 func _on_Tree_body_exited(body):
-	saved_body = null
-	attacked = false
+	if body.id == "axe":
+		saved_body = null
+		attacked = false

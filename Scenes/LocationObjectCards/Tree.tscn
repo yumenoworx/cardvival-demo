@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/Tree.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 61, 82 )
+extents = Vector2( 23, 53 )
 
 [node name="Tree" type="Area2D"]
 script = ExtResource( 2 )

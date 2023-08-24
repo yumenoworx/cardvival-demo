@@ -1,1 +1,0 @@
-instance_deactivate_layer("Main");

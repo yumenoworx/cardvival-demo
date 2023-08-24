@@ -1,1 +1,0 @@
-atacked = false;

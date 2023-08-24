@@ -6,7 +6,7 @@
 flags = 4
 load_path = "res://.import/axe.png-51226c3dc66787915c39b4ec9f7e5ed6.stex"
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 61, 82 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
@@ -19,10 +19,7 @@ texture = SubResource( 2 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [connection signal="input_event" from="." to="." method="_on_KinematicBody2D_input_event"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

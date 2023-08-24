@@ -8,8 +8,16 @@ extents = Vector2( 61, 82 )
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Tree" parent="." instance=ExtResource( 2 )]
+[node name="Location" type="Node2D" parent="."]
+
+[node name="Tree" parent="Location" instance=ExtResource( 2 )]
 position = Vector2( 684, 404 )
+
+[node name="Tree2" parent="Location" instance=ExtResource( 2 )]
+position = Vector2( 823, 404 )
+
+[node name="Tree3" parent="Location" instance=ExtResource( 2 )]
+position = Vector2( 530, 404 )
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 681, 601 )

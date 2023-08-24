@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/040fd614-8284-4343-9248-a7a89e6b478e.png-d2bfd5423434144ab7fa108d670c7430.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://sprites/Interface_LocationField/040fd614-8284-4343-9248-a7a89e6b478e.png"
+dest_files=[ "res://.import/040fd614-8284-4343-9248-a7a89e6b478e.png-d2bfd5423434144ab7fa108d670c7430.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

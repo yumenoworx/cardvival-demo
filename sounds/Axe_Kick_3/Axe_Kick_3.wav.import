@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Axe_Kick_3.wav-53b4d9e169256d199335c477b106f23b.sample"
+
+[deps]
+
+source_file="res://sounds/Axe_Kick_3/Axe_Kick_3.wav"
+dest_files=[ "res://.import/Axe_Kick_3.wav-53b4d9e169256d199335c477b106f23b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

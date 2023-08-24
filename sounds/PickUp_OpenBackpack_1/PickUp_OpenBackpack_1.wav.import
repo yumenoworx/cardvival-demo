@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PickUp_OpenBackpack_1.wav-bc374e563e6a0b0aaaf59408fe19b18a.sample"
+
+[deps]
+
+source_file="res://sounds/PickUp_OpenBackpack_1/PickUp_OpenBackpack_1.wav"
+dest_files=[ "res://.import/PickUp_OpenBackpack_1.wav-bc374e563e6a0b0aaaf59408fe19b18a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

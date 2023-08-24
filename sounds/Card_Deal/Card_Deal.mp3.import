@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Card_Deal.mp3-ec5dfa6c5d8fd5e39e5894fbc9bafb2c.mp3str"
+
+[deps]
+
+source_file="res://sounds/Card_Deal/Card_Deal.mp3"
+dest_files=[ "res://.import/Card_Deal.mp3-ec5dfa6c5d8fd5e39e5894fbc9bafb2c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

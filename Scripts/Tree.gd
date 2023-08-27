@@ -1,4 +1,5 @@
 extends Area2D
+var axe_scene: PackedScene = preload("res://Scenes/Cards/card.tscn")
 
 
 var saved_body = null
@@ -23,6 +24,8 @@ func _process(delta):
 	elif hp <= 0:
 		$Sprite.modulate.a = 0.5
 		recovery_time -= delta
+		var axe = axe_scene.instantiate() as KinematicBody2D
+		add_child(axe)
 		if recovery_time <= 0:
 			$Sprite.modulate.a = 1
 			recovery_time = 5

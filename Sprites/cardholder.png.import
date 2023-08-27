@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/рамка.png-40fb03b45a4a939d3c3127ace20d837e.stex"
+path="res://.import/cardholder.png-b477559c2ea6e48516cbf136ead29bec.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/рамка.png"
-dest_files=[ "res://.import/рамка.png-40fb03b45a4a939d3c3127ace20d837e.stex" ]
+source_file="res://Sprites/cardholder.png"
+dest_files=[ "res://.import/cardholder.png-b477559c2ea6e48516cbf136ead29bec.stex" ]
 
 [params]
 

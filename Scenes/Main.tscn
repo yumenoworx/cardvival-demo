@@ -1,28 +1,51 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scenes/Cards/Tool.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/LocationObjectCards/Tree.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scripts/Location.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=4]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 61, 82 )
+[sub_resource type="GDScript" id=3]
+script/source = "extends Node2D
 
-[node name="Node2D" type="Node2D"]
+var slots_count = 3
+var new_spawner = null
+
+func _ready():
+	var last_position = null
+	var spawner = load(\"res://Scenes/LocationObjectCards/LocationObjectSpawner.tscn\").instance()
+	add_child(spawner)
+	spawner.position.x = 683 - ((spawner.get_node(\"Sprite\").texture.get_width()/2) / slots_count)
+	var next_position_x = spawner.position.x + (spawner.get_node(\"Sprite\").texture.get_width()/2)
+	spawner.position.y = 768/2
+	var i = 1
+	while i < slots_count:
+		new_spawner = load(\"res://Scenes/LocationObjectCards/LocationObjectSpawner.tscn\").instance()
+		add_child(new_spawner)
+		new_spawner.position.x = next_position_x
+		new_spawner.position.y = 768/2
+		next_position_x = new_spawner.position.x + (new_spawner.get_node(\"Sprite\").texture.get_width()/2)
+		i += 1
+	var axe = load(\"res://Scenes/Cards/Tool.tscn\").instance()
+	add_child(axe)
+	axe.position.x = 1366/2
+"
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="Location" type="Node2D" parent="."]
-script = ExtResource( 3 )
+script = SubResource( 3 )
 
 [node name="Tree" parent="Location" instance=ExtResource( 2 )]
+visible = false
 position = Vector2( 680, 400 )
 
 [node name="Tree2" parent="Location" instance=ExtResource( 2 )]
+visible = false
 position = Vector2( 832, 400 )
 
 [node name="Tree3" parent="Location" instance=ExtResource( 2 )]
+visible = false
 position = Vector2( 536, 400 )
 
-[node name="KinematicBody2D2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 680, 592 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D2"]
-shape = SubResource( 2 )
+[node name="Tools" type="Node2D" parent="."]
+visible = false

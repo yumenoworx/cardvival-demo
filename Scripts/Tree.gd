@@ -11,13 +11,15 @@ func _process(delta):
 	$TreeHP.text = str(hp)
 	if saved_body != null and not saved_body.dragging and hp > 0:
 		saved_body.position = position
-		if not attacked:
+		if not attacked and not saved_body.cooldown:
 			hp -= 3
 			attacked = true
 			saved_body.put_down = false
-		elif saved_body.put_down:
+			saved_body.cooldown = true
+		elif saved_body.put_down and not saved_body.cooldown:
 			hp -= 3
 			saved_body.put_down = false
+			saved_body.cooldown = true
 	elif hp <= 0:
 		$Sprite.modulate.a = 0.5
 		recovery_time -= delta

@@ -6,27 +6,28 @@
 [sub_resource type="GDScript" id=3]
 script/source = "extends Node2D
 
-var slots_count = 3
+var slots_count = 6
 var new_spawner = null
 
 func _ready():
-	var last_position = null
-	var spawner = load(\"res://Scenes/LocationObjectCards/LocationObjectSpawner.tscn\").instance()
-	add_child(spawner)
-	spawner.position.x = 683 - ((spawner.get_node(\"Sprite\").texture.get_width()/2) / slots_count)
-	var next_position_x = spawner.position.x + (spawner.get_node(\"Sprite\").texture.get_width()/2)
-	spawner.position.y = 768/2
-	var i = 1
+	var i = 0
+	var window_size = get_viewport().size
 	while i < slots_count:
-		new_spawner = load(\"res://Scenes/LocationObjectCards/LocationObjectSpawner.tscn\").instance()
-		add_child(new_spawner)
-		new_spawner.position.x = next_position_x
-		new_spawner.position.y = 768/2
-		next_position_x = new_spawner.position.x + (new_spawner.get_node(\"Sprite\").texture.get_width()/2)
 		i += 1
-	var axe = load(\"res://Scenes/Cards/Tool.tscn\").instance()
-	add_child(axe)
-	axe.position.x = 1366/2
+		var spawner = load(\"res://Scenes/LocationObjectCards/LocationObjectSpawner.tscn\").instance()
+		add_child(spawner)
+		var sp_sprite = spawner.get_node(\"Sprite\")
+		var sp_width = sp_sprite.texture.get_width() * sp_sprite.get_scale().x
+		spawner.position.x = (window_size.x - get_x_with_gap(slots_count + 1, sp_width)) / 2 + get_x_with_gap(i, sp_width)
+		spawner.position.y = window_size.y / 2
+	var location = load(\"res://Scenes/LocationObjectCards/LocationHolder.tscn\").instance()
+	add_child(location)
+	location.position.x = window_size.x/2
+	location.position.y = window_size.y/2 - 176
+	
+
+
+func get_x_with_gap(count, width, gap=11): return (count * width + (count - 1) * gap)
 "
 
 [node name="Main" type="Node2D"]

@@ -5,6 +5,7 @@ var grab_x = 0
 var grab_y = 0
 
 var id = "forest"
+var type = "location"
 var cooldown = false
 var cooldown_time = 3
 var can_move = false

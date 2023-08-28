@@ -14,6 +14,10 @@ config/name="Cardvival"
 run/main_scene="res://Scenes/Main.tscn"
 boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 
+[autoload]
+
+Global="*res://Scenes/Main.tscn"
+
 [display]
 
 window/size/width=1366

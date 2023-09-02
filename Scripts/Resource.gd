@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 
 var grab_x = 0
@@ -14,6 +14,7 @@ var old_x = 0
 var old_y = 0
 
 var put_down = false
+
 
 func _process(delta):
 	$id.text = id
@@ -34,8 +35,8 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 		if event.is_action_pressed("left_mb"):
 			put_down = false
 			can_move = true
-			$Sprite.scale.x = 0.32 + 0.017
-			$Sprite.scale.y = 0.32 + 0.017
+			$Sprite2D.scale.x = 0.32 + 0.017
+			$Sprite2D.scale.y = 0.32 + 0.017
 			grab_x = get_viewport().get_mouse_position().x - position.x
 			grab_y = get_viewport().get_mouse_position().y - position.y
 			old_x = position.x
@@ -45,8 +46,8 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 			put_down = true
 			can_move = false
 			dragging = false
-			$Sprite.scale.x = 0.32
-			$Sprite.scale.y = 0.32
+			$Sprite2D.scale.x = 0.32
+			$Sprite2D.scale.y = 0.32
 			queue_free()
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 

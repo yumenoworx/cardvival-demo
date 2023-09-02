@@ -11,7 +11,7 @@ func _process(delta):
 	if Global.location != null:
 		$LocationName.text = Global.location
 	else:
-		$LocationName.text = "???"
+		$LocationName.text = "??????"
 
 func _on_Area2D_body_entered(body):
 	if body.id == "forest":
@@ -22,4 +22,4 @@ func _on_Area2D_body_entered(body):
 func _on_Area2D_body_exited(body):
 	if body.id == "forest":
 		Global.location = null
-		saved_body = body
+		saved_body = null

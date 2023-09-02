@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=2]
 
-[sub_resource type="StreamTexture" id=2]
+[sub_resource type="CompressedTexture2D" id=2]
 flags = 4
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 190, 256 )
+size = Vector2( 190, 256 )
 
 [node name="Spawner" type="Area2D"]
 scale = Vector2( 0.32, 0.32 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

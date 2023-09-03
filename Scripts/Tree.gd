@@ -6,33 +6,36 @@ var attacked = false
 var hp = 15
 var recovery_time = 5 
 var resource_dropped = false
+var resource = null
 
 func _process(delta):
-	if Global.location == "forest":
+	if resource != null:
+		return
+	if global.location == "forest":
 		visible = true
-		$TreeHP.text = str(hp)
+		if hp > 0:
+			$TreeHP.text = str(hp)
+		else:
+			$TreeHP.text = ""
 		if saved_body != null and not saved_body.dragging and hp > 0:
 			saved_body.position = global_position
-			print(global_position)
 			if not attacked and not saved_body.cooldown:
 				hp -= 3
 				attacked = true
 				saved_body.put_down = false
-				#saved_body.cooldown = true
 			elif saved_body.put_down and not saved_body.cooldown:
 				hp -= 3
 				saved_body.put_down = false
-				#saved_body.cooldown = true
 		elif hp <= 0:
-			if saved_body != null:
-				saved_body.position.y += 22
 			$Sprite2D.modulate.a = 0.5
-			recovery_time -= delta
 			if not resource_dropped:
-				var resource = load("res://Scenes/Cards/Resource.tscn").instantiate()
+				saved_body.position.y += 210
+				resource = load("res://Scenes/Cards/Resource.tscn").instantiate()
 				add_child(resource)
 				resource.id = "log"
 				resource_dropped = true
+				return
+			recovery_time -= delta
 			if recovery_time <= 0:
 				$Sprite2D.modulate.a = 1
 				recovery_time = 5

@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://ymy4h4ra784o"]
 
 [ext_resource type="Texture2D" uid="uid://q2e1c5sdn7fh" path="res://Sprites/cardholder.png" id="1"]
-[ext_resource type="Script" path="res://Scenes/LocationObjectCards/LocationHolder.gd" id="2"]
+[ext_resource type="Script" path="res://Scripts/LocationHolder.gd" id="1_8qxa4"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(61, 82)
 
 [node name="Area2D" type="Area2D"]
-script = ExtResource("2")
+script = ExtResource("1_8qxa4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.32, 0.32)

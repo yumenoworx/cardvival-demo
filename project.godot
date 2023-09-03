@@ -14,10 +14,13 @@ config/name="Cardvival"
 run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.1")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
+boot_splash/show_image=false
+boot_splash/use_filter=false
 
 [autoload]
 
-Global="*res://Scenes/Global.gd"
+global="*res://Scripts/Global.gd"
+inventory="*res://Scripts/Inventory.gd"
 
 [display]
 
@@ -43,6 +46,10 @@ left_mb={
 ]
 }
 
+[input_devices]
+
+pointing/emulate_mouse_from_touch=false
+
 [mono]
 
 project/assembly_name="Cardvival"
@@ -53,6 +60,6 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.133333, 0.133333, 0.133333, 1)
+environment/defaults/default_clear_color=Color(0.137255, 0.137255, 0.137255, 1)
 environment/defaults/default_environment="res://default_env.tres"
 2d/snapping/use_gpu_pixel_snap=true

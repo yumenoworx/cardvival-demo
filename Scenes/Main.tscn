@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://paeh5h0njko1"]
 
 [ext_resource type="PackedScene" uid="uid://bpmwxjjfiy4oh" path="res://Scenes/Cards/Tool.tscn" id="1"]
-[ext_resource type="Script" path="res://Scenes/LocationNode.gd" id="2_s1168"]
+[ext_resource type="Script" path="res://Scripts/LocationNode.gd" id="2_ichip"]
 [ext_resource type="PackedScene" uid="uid://biu23pc4l8wr" path="res://Scenes/Cards/Location.tscn" id="3"]
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://cxxm8nwos8mm3" path="res://Scenes/Cards/Resource.tscn" id="5"]
@@ -13,7 +13,7 @@ size = Vector2(61, 80.5)
 script = ExtResource("4")
 
 [node name="Location" type="Node2D" parent="."]
-script = ExtResource("2_s1168")
+script = ExtResource("2_ichip")
 
 [node name="Cards" type="Node2D" parent="."]
 
@@ -37,3 +37,10 @@ position = Vector2(881, 618)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cards/KinematicBody2D3"]
 position = Vector2(0, 0.5)
 shape = SubResource("4")
+
+[node name="Label" type="Label" parent="."]
+offset_top = 7.0
+offset_right = 149.0
+offset_bottom = 115.0
+text = "Cardvival! DEMO"
+horizontal_alignment = 1

@@ -1,13 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://paeh5h0njko1"]
+[gd_scene load_steps=4 format=3 uid="uid://paeh5h0njko1"]
 
-[ext_resource type="PackedScene" uid="uid://bpmwxjjfiy4oh" path="res://Scenes/Cards/Tool.tscn" id="1"]
 [ext_resource type="Script" path="res://Scripts/LocationNode.gd" id="2_ichip"]
-[ext_resource type="PackedScene" uid="uid://biu23pc4l8wr" path="res://Scenes/Cards/Location.tscn" id="3"]
+[ext_resource type="Script" path="res://Scenes/Cards.gd" id="3_jpqe5"]
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="4"]
-[ext_resource type="PackedScene" uid="uid://cxxm8nwos8mm3" path="res://Scenes/Cards/Resource.tscn" id="5"]
-
-[sub_resource type="RectangleShape2D" id="4"]
-size = Vector2(61, 80.5)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("4")
@@ -16,27 +11,7 @@ script = ExtResource("4")
 script = ExtResource("2_ichip")
 
 [node name="Cards" type="Node2D" parent="."]
-
-[node name="CharacterBody2D" parent="Cards" instance=ExtResource("3")]
-position = Vector2(561, 618)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cards/CharacterBody2D"]
-position = Vector2(0, 0.5)
-shape = SubResource("4")
-
-[node name="KinematicBody2D2" parent="Cards" instance=ExtResource("5")]
-position = Vector2(713, 618)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cards/KinematicBody2D2"]
-position = Vector2(0, 0.5)
-shape = SubResource("4")
-
-[node name="KinematicBody2D3" parent="Cards" instance=ExtResource("1")]
-position = Vector2(881, 618)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cards/KinematicBody2D3"]
-position = Vector2(0, 0.5)
-shape = SubResource("4")
+script = ExtResource("3_jpqe5")
 
 [node name="Label" type="Label" parent="."]
 offset_top = 7.0

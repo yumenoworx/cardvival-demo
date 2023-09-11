@@ -4,18 +4,19 @@ extends CharacterBody2D
 var grab_x = 0
 var grab_y = 0
 
-var id = "forest"
+var tag = "Forest"
 var type = "location"
 var cooldown = false
 var cooldown_time = 3
 var can_move = false
 var dragging = false
 
-var old_x = 0
-var old_y = 0
+var old = null
 
 var put_down = false
 
+func _ready():
+	print(tag)
 
 func _process(delta):
 	if can_move:
@@ -23,7 +24,12 @@ func _process(delta):
 		position.y = get_viewport().get_mouse_position().y - grab_y
 		position.x = clamp(position.x, 0, 1366)
 		position.y = clamp(position.y, 0, 768)
-		if position.x != old_x or position.y != old_y and dragging == false:
+		if position.x == 0 or position.x == 1366 or position.y == 0 or position.y == 768:
+			if old != position:
+				Input.action_release("left_mb")
+				can_move = false
+				return
+		if position.x != old.x or position.y != old.y and dragging == false:
 			dragging = true
 	if cooldown:
 		cooldown_time -= delta
@@ -41,8 +47,7 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 			$Sprite2D.scale.y = 0.32 + 0.017
 			grab_x = get_viewport().get_mouse_position().x - position.x
 			grab_y = get_viewport().get_mouse_position().y - position.y
-			old_x = position.x
-			old_y = position.y
+			old = position
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		if event.is_action_released("left_mb"):
 			put_down = true
@@ -54,10 +59,7 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 
 
 func _on_Area2D_mouse_entered():
-	if not cooldown:
-		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
-	else:
-		Input.set_default_cursor_shape(Input.CURSOR_WAIT)
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 
 
 func _on_Area2D_mouse_exited():

@@ -18,7 +18,7 @@ texture = ExtResource("1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("3")
 
-[node name="id" type="Label" parent="."]
+[node name="Tag" type="Label" parent="."]
 offset_left = -20.0
 offset_top = 89.0
 offset_right = 20.0

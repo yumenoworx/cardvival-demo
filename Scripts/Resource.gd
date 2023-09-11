@@ -4,7 +4,7 @@ extends CharacterBody2D
 var grab_x = 0
 var grab_y = 0
 
-var id = "log"
+var tag = "Log"
 var cooldown = false
 var cooldown_time = 3
 var can_move = false
@@ -17,7 +17,7 @@ var put_down = false
 
 
 func _process(delta):
-	$id.text = id
+	$Tag.text = tag
 	if can_move:
 		position.x = get_viewport().get_mouse_position().x - grab_x
 		position.y = get_viewport().get_mouse_position().y - grab_y
@@ -43,20 +43,12 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 			old_y = position.y
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		if event.is_action_released("left_mb"):
-			put_down = true
-			can_move = false
-			dragging = false
-			$Sprite2D.scale.x = 0.32
-			$Sprite2D.scale.y = 0.32
-			queue_free()
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			queue_free()
 
 
 func _on_Area2D_mouse_entered():
-	if not cooldown:
-		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
-	else:
-		Input.set_default_cursor_shape(Input.CURSOR_WAIT)
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 
 
 func _on_Area2D_mouse_exited():

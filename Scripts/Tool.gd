@@ -4,7 +4,7 @@ extends CharacterBody2D
 var grab_x = 0
 var grab_y = 0
 
-var id = "axe"
+var tag = "Axe"
 var cooldown = false
 var cooldown_time = 3
 var can_move = false
@@ -15,7 +15,9 @@ var old_y = 0
 
 var put_down = false
 
-
+func _ready():
+	print(tag)
+	
 func _process(delta):
 	if can_move:
 		position.x = get_viewport().get_mouse_position().x - grab_x

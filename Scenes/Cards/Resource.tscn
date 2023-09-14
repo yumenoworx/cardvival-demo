@@ -24,6 +24,9 @@ offset_top = 89.0
 offset_right = 20.0
 offset_bottom = 103.0
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("3")
+
 [connection signal="input_event" from="." to="." method="_on_KinematicBody2D_input_event"]
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]

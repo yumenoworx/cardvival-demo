@@ -25,3 +25,4 @@ func _on_input_event(viewport, event, shape_idx):
 			item.position = get_viewport().get_mouse_position()
 			get_parent().add_child(item)
 			queue_free()
+			# Input.action_press("left_mb")

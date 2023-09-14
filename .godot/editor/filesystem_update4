@@ -1,6 +1,4 @@
 res://default_env.tres
-res://Scenes/Cards/Slot.tscn
-res://Scenes/Cards/Slot.gd
 res://Scenes/Main.tscn
 res://Scenes/LocationObjectSpawner.tscn
 res://Scenes/Cards/Location.tscn
@@ -10,8 +8,7 @@ res://Scenes/LocationObjectCards/LocationHolder.tscn
 res://Scenes/Cards/Tool.tscn
 res://Scenes/Global.tscn
 res://Scenes/Spawner.tscn
-res://Scripts/Inventory.gd
-res://Scripts/Tool.gd
-res://Scripts/Location.gd
-res://Scripts/Resource.gd
-res://Scenes/Cards.gd
+res://Scenes/Cards/Slot.tscn
+res://Scripts/LocationHolder.gd
+res://Scripts/Tree.gd
+res://Scenes/Cards/Slot.gd

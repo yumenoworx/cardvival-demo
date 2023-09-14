@@ -46,11 +46,11 @@ func _process(delta):
 
 
 func _on_Tree_body_entered(body):
-	if body.id == "axe" and visible == true:
+	if body.tag == "axe" and visible == true:
 		saved_body = body
 
 
 func _on_Tree_body_exited(body):
-	if body.id == "axe":
+	if body.tag == "axe":
 		saved_body = null
 		attacked = false

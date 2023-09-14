@@ -7,7 +7,7 @@ func _ready():
 
 func _process(delta):
 	if saved_body != null and not saved_body.dragging:
-		global.location = "forest"
+		global.location = "Forest"
 		saved_body.position = position
 	if global.location != null:
 		$LocationName.text = global.location
@@ -15,11 +15,11 @@ func _process(delta):
 		$LocationName.text = "??????"
 
 func _on_Area2D_body_entered(body):
-	if body.id == "forest":
+	if body.tag == "Forest":
 		saved_body = body
 
 
 func _on_Area2D_body_exited(body):
-	if body.id == "forest":
+	if body.tag == "Forest":
 		global.location = null
 		saved_body = null

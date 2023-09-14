@@ -21,7 +21,7 @@ func _ready():
 	var location = load("res://Scenes/LocationObjectCards/LocationHolder.tscn").instantiate()
 	add_child(location)
 	location.position.x = window_size.x/2
-	location.position.y = window_size.y/2 - 176
+	location.position.y = window_size.y/2
 	
 
 

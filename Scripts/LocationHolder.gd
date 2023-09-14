@@ -7,14 +7,17 @@ func _ready():
 
 func _process(delta):
 	if saved_body != null and not saved_body.dragging:
+		if $LocationName.text == "??????":
+			position.y -= 176
+			saved_body.position = global_position
 		global.location = saved_body.tag
 		if $AudioStreamPlayer.playing == false:
 			$AudioStreamPlayer.play()
-		saved_body.position = position
 	if global.location != null:
 		$LocationName.text = global.location
 	else:
 		$LocationName.text = "??????"
+
 
 func _on_Area2D_body_entered(body):
 	if body.tag == "Forest":
@@ -23,7 +26,8 @@ func _on_Area2D_body_entered(body):
 
 
 func _on_Area2D_body_exited(body):
-	if body.tag == "Forest":
+	if body.tag == "Forest" and body.position != global_position:
 		global.location = null
 		saved_body = null
+		position.y += 176
 		$AudioStreamPlayer.stop()

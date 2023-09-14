@@ -12,3 +12,4 @@ res://Scenes/Cards/Slot.tscn
 res://Scripts/LocationNode.gd
 res://Scripts/LocationHolder.gd
 res://Scripts/Inventory.gd
+res://Scripts/Tree.gd

@@ -17,7 +17,10 @@ func _process(delta):
 			$TreeHP.text = str(hp)
 		else:
 			$TreeHP.text = ""
+		if saved_body != null and saved_body.dragging:
+			$Sprite2D.visible = true
 		if saved_body != null and not saved_body.dragging and hp > 0:
+			$Sprite2D.visible = false
 			saved_body.position = global_position
 			if not attacked and not saved_body.cooldown:
 				saved_body.get_node("AudioStreamPlayer2D").stream = null
@@ -41,12 +44,18 @@ func _process(delta):
 				resource.tag = "Log"
 				resource_dropped = true
 				return
-			recovery_time -= delta
-			if recovery_time <= 0:
-				$Sprite2D.modulate.a = 1
-				recovery_time = 5
-				hp = 15
-				resource_dropped = false
+			if resource == null:
+				recovery_time -= delta
+				if recovery_time <= 0:
+					$Sprite2D.modulate.a = 1
+					recovery_time = 5
+					hp = 15
+					resource_dropped = false
+			else:
+				if resource.dragging:
+					$Sprite2D.visible = true
+				else:
+					$Sprite2D.visible = false
 	else:
 		visible = false
 
@@ -60,6 +69,7 @@ func _on_Tree_body_exited(body):
 	if body.tag == "Axe":
 		saved_body = null
 		attacked = false
+		$Sprite2D.visible = true
 
 
 func _on_audio_stream_player_2d_finished():

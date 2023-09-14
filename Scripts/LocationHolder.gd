@@ -7,12 +7,15 @@ func _ready():
 
 func _process(delta):
 	if saved_body != null and not saved_body.dragging:
+		$Sprite2D.visible = false
 		if $LocationName.text == "??????":
 			position.y -= 176
-			saved_body.position = global_position
+		saved_body.position = global_position
 		global.location = saved_body.tag
 		if $AudioStreamPlayer.playing == false:
 			$AudioStreamPlayer.play()
+	else:
+		$Sprite2D.visible = true
 	if global.location != null:
 		$LocationName.text = global.location
 	else:

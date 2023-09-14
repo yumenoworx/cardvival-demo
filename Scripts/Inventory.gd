@@ -1,7 +1,6 @@
 extends Node2D
 
 
-var slots = 3
 var location = null
 var inventory = []
 var old_inventory = []
@@ -34,7 +33,10 @@ func _process(delta):
 			slot.type = item["type"]
 			get_tree().get_root().get_node("Main").get_node("Inventory").add_child(slot)
 			var sprite = slot.get_node("Sprite2D").texture.get_width() * slot.get_node("Sprite2D").get_scale().x
-			slot.position.x = (window_size.x - get_x_with_gap(len(inventory) + 1, sprite)) / 2 + get_x_with_gap(i, sprite)
+			if len(inventory) != 1:
+				slot.position.x = (window_size.x - get_x_with_gap(len(inventory) + 1, sprite)) / 2 + get_x_with_gap(i, sprite)
+			else:
+				slot.position.x = window_size.x /2
 			slot.position.y = window_size.y - 64
 			if i == 1:
 				print(slot.position.x)
@@ -44,7 +46,7 @@ func _process(delta):
 		old_inventory.assign(inventory)
 
 
-func get_x_with_gap(count, width, gap=20): return (count * width + (count - 1) * gap)
+func get_x_with_gap(count, width, gap=10): return (count * width + (count - 1) * gap) + 10
 
 
 func add_item(item, qty):

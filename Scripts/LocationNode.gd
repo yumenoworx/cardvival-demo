@@ -1,6 +1,6 @@
 extends Node2D
 
-var slots_count = 6
+var slots_count = 5
 var new_spawner = null
 
 func _ready():
@@ -21,8 +21,8 @@ func _ready():
 	var location = load("res://Scenes/LocationObjectCards/LocationHolder.tscn").instantiate()
 	add_child(location)
 	location.position.x = window_size.x/2
-	location.position.y = window_size.y/2
+	location.position.y = window_size.y/2 #- 176
 	
 
 
-func get_x_with_gap(count, width, gap=10): return (count * width + (count - 1) * gap)
+func get_x_with_gap(count, width, gap=10): return (count * width + (count - 1) * gap) + 10

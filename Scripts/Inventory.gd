@@ -6,24 +6,22 @@ var location = null
 var inventory = []
 var old_inventory = []
 var need_update = false
+var free_inventory = null
 
 
 func _ready():
 	inventory = [generate_item("Forest", "res://Sprites/forest.png", -1, "location"),
 				 generate_item("Axe", "res://Sprites/axe.png", -1, "tool")]
+	free_inventory = get_tree().get_root().get_node("Main").get_node("Inventory")
 
 
 func _process(delta):
 	if inventory != old_inventory or need_update:
-		var slots = get_tree().get_root().get_node("Main").get_node("Inventory").get_node("Slot")
-		if slots != null:
-			slots.free()
-		need_update = false
+		var slots = get_tree().get_root().get_node("Main").get_node("Inventory").get_children()
+		if slots != []:
+			for slot in slots:
+				slot.free()
 		print("update")
-		old_inventory.assign(inventory)
-		print(old_inventory)
-		print(inventory)
-		print(old_inventory == inventory)
 		var i = 0
 		var window_size = get_viewport().size
 		for item in inventory:
@@ -42,6 +40,8 @@ func _process(delta):
 				print(slot.position.x)
 			elif i == len(inventory):
 				print(slot.position.x)
+		need_update = false
+		old_inventory.assign(inventory)
 
 
 func get_x_with_gap(count, width, gap=20): return (count * width + (count - 1) * gap)

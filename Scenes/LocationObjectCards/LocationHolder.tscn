@@ -17,10 +17,10 @@ texture = ExtResource("1")
 shape = SubResource("1")
 
 [node name="LocationName" type="Label" parent="."]
-offset_left = -64.0
+offset_left = -60.0
 offset_top = -104.0
-offset_right = 64.0
-offset_bottom = -90.0
+offset_right = 61.0
+offset_bottom = -81.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -17.17

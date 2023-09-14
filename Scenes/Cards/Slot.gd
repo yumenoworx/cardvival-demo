@@ -32,7 +32,7 @@ func _on_input_event(viewport, event, shape_idx):
 			inventory.take_item(inventory.generate_item(tag, sprite, qty, type), -1)
 			queue_free()
 			Input.action_press("left_mb")
-			item.on_pressed()
+			item.on_lmb_pressed()
 
 
 func _on_mouse_entered():

@@ -32,7 +32,7 @@ func _process(delta):
 				saved_body.position.y += 210
 				resource = load("res://Scenes/Cards/Resource.tscn").instantiate()
 				add_child(resource)
-				resource.tag = "log"
+				resource.tag = "Log"
 				resource_dropped = true
 				return
 			recovery_time -= delta

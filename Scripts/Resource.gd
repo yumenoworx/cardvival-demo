@@ -19,6 +19,7 @@ var put_down = false
 func _process(delta):
 	$Tag.text = tag
 	if can_move:
+		move_to_front()
 		position.x = get_viewport().get_mouse_position().x - grab_x
 		position.y = get_viewport().get_mouse_position().y - grab_y
 		if position.x != old_x or position.y != old_y and dragging == false:
@@ -35,7 +36,6 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 		if event.is_action_pressed("left_mb"):
 			put_down = false
 			can_move = true
-			move_to_front()
 			$Sprite2D.scale.x = 0.32 + 0.017
 			$Sprite2D.scale.y = 0.32 + 0.017
 			grab_x = get_viewport().get_mouse_position().x - position.x

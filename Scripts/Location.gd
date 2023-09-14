@@ -49,13 +49,13 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 func on_pressed():
 	put_down = false
 	can_move = true
+	move_to_front()
 	$Sprite2D.scale.x = 0.32 + 0.017
 	$Sprite2D.scale.y = 0.32 + 0.017
 	grab_x = get_viewport().get_mouse_position().x - position.x
 	grab_y = get_viewport().get_mouse_position().y - position.y
 	old = position
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-
 
 func on_realesed():
 	put_down = true

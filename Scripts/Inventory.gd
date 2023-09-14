@@ -14,8 +14,8 @@ func _ready():
 
 func _process(delta):
 	if inventory != old_inventory:
-		print(inventory)
 		old_inventory = inventory
+		print(inventory)
 		var i = 0
 		var window_size = get_viewport().size
 		for item in inventory:
@@ -26,7 +26,7 @@ func _process(delta):
 			slot.qty = item["qty"]
 			slot.sprite = item["texture"]
 			slot.type = item["type"]
-			add_child(slot)
+			get_tree().get_root().get_node("Main").get_node("Inventory").add_child(slot)
 			var sprite = slot.get_node("Sprite2D").texture.get_width() * slot.get_node("Sprite2D").get_scale().x
 			slot.position.x = (window_size.x - get_x_with_gap(len(inventory) + 1, sprite)) / 2 + get_x_with_gap(i, sprite)
 			slot.position.y = window_size.y - 64
@@ -39,12 +39,19 @@ func get_x_with_gap(count, width, gap=20): return (count * width + (count - 1) *
 
 
 func add_item(item, qty):
-	var slot_id = 0
 	for slot in inventory:
 		if slot["tag"] == item["tag"]:
 			slot["qty"] += qty
 			return
 	inventory.append(item)
+	
+func take_item(item, qty):
+	for slot in inventory:
+		if slot["tag"] == item["tag"]:
+			if qty != -1 and slot["qty"] != -1:
+				slot["qty"] -= qty
+			else:
+				pass
 
 func generate_item(tag, texture, qty=-1, type=null, stats=null):
 	match type:

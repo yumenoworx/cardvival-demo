@@ -13,8 +13,6 @@ script = ExtResource("2_ichip")
 [node name="Cards" type="Node2D" parent="."]
 script = ExtResource("3_jpqe5")
 
-[node name="Inventory" type="Node2D" parent="."]
-
 [node name="Label" type="Label" parent="."]
 offset_top = 7.0
 offset_right = 149.0

@@ -1,7 +1,7 @@
+Node2D
 CharacterBody2D
 Area2D
 Label
 CollisionShape2D
 Sprite2D
-Node2D
 Node

@@ -13,6 +13,11 @@ func _ready():
 	$Tag.text = tag
 
 
+func _process(delta):
+	if inventory.inventory != inventory.old_inventory:
+		queue_free()
+
+
 func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and qty == -1:
 		if event.is_action_pressed("left_mb"):
@@ -23,7 +28,7 @@ func _on_input_event(viewport, event, shape_idx):
 			item.get_node("Sprite2D").set_texture(load(sprite))
 			item.tag = tag
 			item.position = get_viewport().get_mouse_position()
-			get_parent().add_child(item)
+			get_tree().get_root().get_node("Main").get_node("Cards").add_child(item)
 			queue_free()
 			Input.action_press("left_mb")
 			item.on_pressed()

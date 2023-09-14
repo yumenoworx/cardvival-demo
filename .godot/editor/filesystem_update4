@@ -14,3 +14,8 @@ res://Scripts/Tree.gd
 res://Scenes/Cards/Slot.gd
 res://Scripts/Location.gd
 res://Scripts/Tool.gd
+res://Scripts/Inventory.gd
+res://Scenes/Cards.gd
+res://Scenes/test.gd
+res://Scripts/Main.gd
+res://Scripts/Resource.gd

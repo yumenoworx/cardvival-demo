@@ -35,6 +35,7 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 		if event.is_action_pressed("left_mb"):
 			put_down = false
 			can_move = true
+			move_to_front()
 			$Sprite2D.scale.x = 0.32 + 0.017
 			$Sprite2D.scale.y = 0.32 + 0.017
 			grab_x = get_viewport().get_mouse_position().x - position.x

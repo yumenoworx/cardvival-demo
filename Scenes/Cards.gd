@@ -1,6 +1,5 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	print(get_tree().get_root().get_node("Main").get_node("Cards"))

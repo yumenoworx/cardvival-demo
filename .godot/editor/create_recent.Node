@@ -1,5 +1,6 @@
-AudioStreamPlayer
 AudioStreamPlayer2D
+AudioListener2D
+AudioStreamPlayer
 Node2D
 CharacterBody2D
 Area2D

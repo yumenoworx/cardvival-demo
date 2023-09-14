@@ -20,10 +20,16 @@ func _process(delta):
 		if saved_body != null and not saved_body.dragging and hp > 0:
 			saved_body.position = global_position
 			if not attacked and not saved_body.cooldown:
+				saved_body.get_node("AudioStreamPlayer2D").stream = null
+				$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/Tools/Axe/Hit.mp3")
+				$AudioStreamPlayer2D.play()
 				hp -= 3
 				attacked = true
 				saved_body.put_down = false
 			elif saved_body.put_down and not saved_body.cooldown:
+				saved_body.get_node("AudioStreamPlayer2D").stream = null
+				$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/Tools/Axe/Hit.mp3")
+				$AudioStreamPlayer2D.play()
 				hp -= 3
 				saved_body.put_down = false
 		elif hp <= 0:
@@ -54,3 +60,7 @@ func _on_Tree_body_exited(body):
 	if body.tag == "Axe":
 		saved_body = null
 		attacked = false
+
+
+func _on_audio_stream_player_2d_finished():
+	pass # Replace with function body.

@@ -7,6 +7,7 @@ func _ready():
 	var tree = load("res://Scenes/LocationObjectCards/Tree.tscn").instantiate()
 	add_child(tree)
 	tree.position = position
+	$Sprite2D.visible = false
 
 
 func _process(delta):

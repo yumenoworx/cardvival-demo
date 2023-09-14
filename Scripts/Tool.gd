@@ -49,8 +49,10 @@ func on_pressed():
 	grab_x = get_viewport().get_mouse_position().x - position.x
 	grab_y = get_viewport().get_mouse_position().y - position.y
 	old = position
+	$AudioStreamPlayer2D.stop()
+	$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/up.mp3")
+	$AudioStreamPlayer2D.play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-
 
 func on_realesed():
 	put_down = true
@@ -58,6 +60,9 @@ func on_realesed():
 	dragging = false
 	$Sprite2D.scale.x = 0.32
 	$Sprite2D.scale.y = 0.32
+	$AudioStreamPlayer2D.stop()
+	$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/down.mp3")
+	$AudioStreamPlayer2D.play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 

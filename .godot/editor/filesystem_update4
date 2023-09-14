@@ -19,3 +19,4 @@ res://Scenes/Cards.gd
 res://Scenes/test.gd
 res://Scripts/Main.gd
 res://Scripts/Resource.gd
+res://Scripts/LocationObjectSpawner.gd

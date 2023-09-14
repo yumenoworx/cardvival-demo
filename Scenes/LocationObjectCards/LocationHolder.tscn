@@ -22,5 +22,9 @@ offset_top = -104.0
 offset_right = 64.0
 offset_bottom = -90.0
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -17.17
+autoplay = true
+
 [connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Area2D_body_exited"]

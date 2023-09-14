@@ -5,17 +5,25 @@ var slots = 3
 var location = null
 var inventory = []
 var old_inventory = []
+var need_update = false
 
 
 func _ready():
-	inventory = [generate_item("Axe", "res://Sprites/axe.png", -1, "tool"), 
-				 generate_item("Forest", "res://Sprites/forest.png", -1, "location")]
+	inventory = [generate_item("Forest", "res://Sprites/forest.png", -1, "location"),
+				 generate_item("Axe", "res://Sprites/axe.png", -1, "tool")]
 
 
 func _process(delta):
-	if inventory != old_inventory:
-		old_inventory = inventory
+	if inventory != old_inventory or need_update:
+		var slots = get_tree().get_root().get_node("Main").get_node("Inventory").get_node("Slot")
+		if slots != null:
+			slots.free()
+		need_update = false
+		print("update")
+		old_inventory.assign(inventory)
+		print(old_inventory)
 		print(inventory)
+		print(old_inventory == inventory)
 		var i = 0
 		var window_size = get_viewport().size
 		for item in inventory:
@@ -35,6 +43,7 @@ func _process(delta):
 			elif i == len(inventory):
 				print(slot.position.x)
 
+
 func get_x_with_gap(count, width, gap=20): return (count * width + (count - 1) * gap)
 
 
@@ -42,16 +51,25 @@ func add_item(item, qty):
 	for slot in inventory:
 		if slot["tag"] == item["tag"]:
 			slot["qty"] += qty
+			update_slots()
 			return
 	inventory.append(item)
-	
+	print("added")
+
+func update_slots():
+	need_update = true
+
+
 func take_item(item, qty):
 	for slot in inventory:
 		if slot["tag"] == item["tag"]:
 			if qty != -1 and slot["qty"] != -1:
 				slot["qty"] -= qty
+				update_slots()
+				return
 			else:
-				pass
+				inventory.erase(slot)
+
 
 func generate_item(tag, texture, qty=-1, type=null, stats=null):
 	match type:

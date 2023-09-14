@@ -29,6 +29,18 @@ func _on_input_event(viewport, event, shape_idx):
 			item.tag = tag
 			item.position = get_viewport().get_mouse_position()
 			get_tree().get_root().get_node("Main").get_node("Cards").add_child(item)
+			inventory.take_item(inventory.generate_item(tag, sprite, qty, type), -1)
 			queue_free()
 			Input.action_press("left_mb")
 			item.on_pressed()
+
+
+func _on_mouse_entered():
+	if qty == -1:
+		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+	else:
+		Input.set_default_cursor_shape(Input.CURSOR_FORBIDDEN)
+
+
+func _on_mouse_exited():
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)

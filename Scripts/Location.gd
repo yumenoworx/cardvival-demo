@@ -41,21 +41,29 @@ func _process(delta):
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.is_action_pressed("left_mb"):
-			put_down = false
-			can_move = true
-			$Sprite2D.scale.x = 0.32 + 0.017
-			$Sprite2D.scale.y = 0.32 + 0.017
-			grab_x = get_viewport().get_mouse_position().x - position.x
-			grab_y = get_viewport().get_mouse_position().y - position.y
-			old = position
-			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+			on_pressed()
 		if event.is_action_released("left_mb"):
-			put_down = true
-			can_move = false
-			dragging = false
-			$Sprite2D.scale.x = 0.32
-			$Sprite2D.scale.y = 0.32
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			on_realesed()
+
+
+func on_pressed():
+	put_down = false
+	can_move = true
+	$Sprite2D.scale.x = 0.32 + 0.017
+	$Sprite2D.scale.y = 0.32 + 0.017
+	grab_x = get_viewport().get_mouse_position().x - position.x
+	grab_y = get_viewport().get_mouse_position().y - position.y
+	old = position
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
+
+func on_realesed():
+	put_down = true
+	can_move = false
+	dragging = false
+	$Sprite2D.scale.x = 0.32
+	$Sprite2D.scale.y = 0.32
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func _on_Area2D_mouse_entered():

@@ -10,7 +10,6 @@ size = Vector2(122, 164)
 script = ExtResource("1_kol02")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 scale = Vector2(0.32, 0.32)
 texture = ExtResource("1")
 

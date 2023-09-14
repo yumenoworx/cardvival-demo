@@ -11,7 +11,7 @@ var resource = null
 func _process(delta):
 	if resource != null:
 		return
-	if global.location == "forest":
+	if global.location == "Forest":
 		visible = true
 		if hp > 0:
 			$TreeHP.text = str(hp)
@@ -32,7 +32,7 @@ func _process(delta):
 				saved_body.position.y += 210
 				resource = load("res://Scenes/Cards/Resource.tscn").instantiate()
 				add_child(resource)
-				resource.id = "log"
+				resource.tag = "log"
 				resource_dropped = true
 				return
 			recovery_time -= delta
@@ -46,11 +46,11 @@ func _process(delta):
 
 
 func _on_Tree_body_entered(body):
-	if body.tag == "axe" and visible == true:
+	if body.tag == "Axe" and visible == true:
 		saved_body = body
 
 
 func _on_Tree_body_exited(body):
-	if body.tag == "axe":
+	if body.tag == "Axe":
 		saved_body = null
 		attacked = false

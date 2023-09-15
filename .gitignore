@@ -1,3 +1,4 @@
 
 .mono/metadata/
 .godot/editor/
+*.cfg

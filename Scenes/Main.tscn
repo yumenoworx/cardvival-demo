@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://paeh5h0njko1"]
+[gd_scene load_steps=7 format=3 uid="uid://paeh5h0njko1"]
 
 [ext_resource type="Script" path="res://Scripts/LocationNode.gd" id="2_ichip"]
 [ext_resource type="Script" path="res://Scenes/Cards.gd" id="3_jpqe5"]
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="4"]
 [ext_resource type="Script" path="res://Scenes/url_open.gd" id="4_10ux7"]
+[ext_resource type="Texture2D" uid="uid://cq7h6aopytbs7" path="res://Sprites/telegram-icone-icon-487914085.png" id="5_530wb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqi1i"]
-size = Vector2(120.5, 18)
+size = Vector2(427, 22)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("4")
@@ -30,9 +31,14 @@ offset_bottom = 43.0
 text = "Cardvival! Official Telegram channel: @natsunokaze"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(352.75, 24)
+position = Vector2(223.5, 24)
 shape = SubResource("RectangleShape2D_vqi1i")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Telegram" type="Sprite2D" parent="Area2D"]
+position = Vector2(426, 24)
+scale = Vector2(0.006, 0.006)
+texture = ExtResource("5_530wb")
 
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="Area2D" method="_on_mouse_entered"]

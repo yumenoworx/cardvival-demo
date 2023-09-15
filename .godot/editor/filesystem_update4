@@ -5,3 +5,10 @@ res://Scenes/Cards/Slot.gd
 res://Scripts/Tool.gd
 res://Scenes/Cards/Tool.tscn
 res://Scenes/Cards/Location.tscn
+res://Scenes/Cards/Resource.tscn
+res://Scripts/Resource.gd
+res://Scripts/Tree.gd
+res://Scenes/icon.gd
+res://Scenes/LocationObjectSpawner.tscn
+res://Scenes/Spawner.tscn
+res://Scenes/url_open.gd

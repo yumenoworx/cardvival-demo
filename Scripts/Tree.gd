@@ -39,6 +39,9 @@ func _process(delta):
 			$Sprite2D.modulate.a = 0.5
 			if not resource_dropped:
 				saved_body.position.y += 210
+				var item = inventory.generate_item("Axe", saved_body.get_node("Sprite2D").texture.resource_path, -1, "tool", null)
+				saved_body.queue_free()
+				inventory.add_item(item, -1)
 				resource = load("res://Scenes/Cards/Resource.tscn").instantiate()
 				get_tree().get_root().get_node("Main").get_node("Cards").add_child(resource)
 				resource.position = global_position

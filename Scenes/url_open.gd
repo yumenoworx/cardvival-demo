@@ -1,12 +1,18 @@
 extends Area2D
 var pcursor = Input.get_current_cursor_shape()
 
+func _ready():
+	modulate.a = 0.5
+
+
 func _on_mouse_entered():
+	modulate.a = 1
 	pcursor = Input.get_current_cursor_shape()
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 
 
 func _on_mouse_exited():
+	modulate.a = 0.5
 	Input.set_default_cursor_shape(pcursor)
 
 

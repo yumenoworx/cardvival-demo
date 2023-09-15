@@ -24,7 +24,7 @@ offset_bottom = 14.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AudioStreamPlayer2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("3")
 
 [connection signal="input_event" from="." to="." method="_on_KinematicBody2D_input_event"]

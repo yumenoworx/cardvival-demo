@@ -25,11 +25,11 @@ func _process(delta):
 		position.y = get_viewport().get_mouse_position().y - grab_y
 		position.x = clamp(position.x, 0, 1366)
 		position.y = clamp(position.y, 0, 768)
-		if position.x == 0 or position.x == 1366 or position.y == 0 or position.y == 768:
-			if old != position:
-				Input.action_release("left_mb")
-				can_move = false
-				return
+		var mouse_pos = get_viewport().get_mouse_position()
+		var window_size = get_viewport().size
+		if mouse_pos.x <= 0 or mouse_pos.x >= window_size.x or mouse_pos.y <= 0 or mouse_pos.y >= window_size.y:
+			Input.action_release("left_mb")
+			on_lmb_released()
 		if position.x != old.x or position.y != old.y and dragging == false:
 			dragging = true
 	if cooldown:

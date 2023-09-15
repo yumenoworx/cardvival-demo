@@ -16,8 +16,9 @@ script = ExtResource("3_jpqe5")
 [node name="Inventory" type="Node2D" parent="."]
 
 [node name="Label" type="Label" parent="."]
-offset_top = 7.0
-offset_right = 149.0
-offset_bottom = 115.0
-text = "Cardvival! DEMO"
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 466.0
+offset_bottom = 43.0
+text = "Cardvival! DEMO. Official Telegram channel: @natsunokaze"
 horizontal_alignment = 1

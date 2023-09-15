@@ -1,8 +1,7 @@
 extends CharacterBody2D
 
 
-var grab_x = 0
-var grab_y = 0
+var grab = 0
 var tag = "Axe"
 var cooldown = false
 var cooldown_time = 3
@@ -19,10 +18,14 @@ func _ready():
 func _process(delta):
 	if can_move:
 		move_to_front()
-		position.x = get_viewport().get_mouse_position().x - grab_x
-		position.y = get_viewport().get_mouse_position().y - grab_y
+		position = get_viewport().get_mouse_position() - grab
 		position.x = clamp(position.x, 0, 1366)
 		position.y = clamp(position.y, 0, 768)
+		var mouse_pos = get_viewport().get_mouse_position()
+		var window_size = get_viewport().size
+		if mouse_pos.x <= 0 or mouse_pos.x >= window_size.x or mouse_pos.y <= 0 or mouse_pos.y >= window_size.y:
+			Input.action_release("left_mb")
+			on_lmb_released()
 		if position.x != old.x or position.y != old.y and dragging == false:
 			dragging = true
 	if cooldown:
@@ -50,8 +53,7 @@ func on_lmb_pressed():
 	move_to_front()
 	$Sprite2D.scale.x = 0.32 + 0.017
 	$Sprite2D.scale.y = 0.32 + 0.017
-	grab_x = get_viewport().get_mouse_position().x - position.x
-	grab_y = get_viewport().get_mouse_position().y - position.y
+	grab = get_viewport().get_mouse_position() - position
 	old = position
 	$AudioStreamPlayer2D.stop()
 	$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/up.mp3")

@@ -13,3 +13,4 @@ res://Scenes/Cards/Slot.tscn
 res://Scripts/Tree.gd
 res://Scenes/url_open.gd
 res://Scripts/Main.gd
+res://Scenes/Cards/Slot.gd

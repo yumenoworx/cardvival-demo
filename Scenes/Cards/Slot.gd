@@ -14,6 +14,7 @@ func _ready():
 
 
 func _process(delta):
+	$Tag.visible = false
 	if inventory.inventory != inventory.old_inventory:
 		queue_free()
 
@@ -36,6 +37,7 @@ func _on_input_event(viewport, event, shape_idx):
 
 
 func _on_mouse_entered():
+	$Tag.visible = true
 	if qty == -1:
 		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 	else:
@@ -43,4 +45,5 @@ func _on_mouse_entered():
 
 
 func _on_mouse_exited():
+	$Tag.visible = false
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)

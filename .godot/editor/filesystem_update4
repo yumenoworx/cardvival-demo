@@ -11,3 +11,5 @@ res://Scenes/Global.tscn
 res://Scenes/Spawner.tscn
 res://Scenes/Cards/Slot.tscn
 res://Scripts/Tree.gd
+res://Scenes/url_open.gd
+res://Scripts/Main.gd

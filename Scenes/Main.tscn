@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scenes/url_open.gd" id="4_10ux7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqi1i"]
-size = Vector2(119, 18)
+size = Vector2(120.5, 18)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("4")
@@ -25,13 +25,12 @@ script = ExtResource("4_10ux7")
 [node name="Label" type="Label" parent="Area2D"]
 offset_left = 10.0
 offset_top = 11.0
-offset_right = 466.0
+offset_right = 797.0
 offset_bottom = 43.0
 text = "Cardvival! Official Telegram channel: @natsunokaze"
-horizontal_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(380.5, 24)
+position = Vector2(352.75, 24)
 shape = SubResource("RectangleShape2D_vqi1i")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 

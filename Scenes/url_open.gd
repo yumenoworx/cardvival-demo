@@ -12,5 +12,9 @@ func _on_mouse_exited():
 
 func _on_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("left_mb"):
-		OS.shell_open("https://t.me/natsunokaze")
+		if not randi()%18:
+			OS.shell_open("https://t.me/natsunokaze")
+			OS.shell_open("https://youtu.be/dQw4w9WgXcQ?si=37y7BE-Hp8Bi8Swc")
+		else:
+			OS.shell_open("https://t.me/natsunokaze")
 

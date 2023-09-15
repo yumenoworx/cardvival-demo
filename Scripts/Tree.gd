@@ -40,7 +40,8 @@ func _process(delta):
 			if not resource_dropped:
 				saved_body.position.y += 210
 				resource = load("res://Scenes/Cards/Resource.tscn").instantiate()
-				add_child(resource)
+				get_tree().get_root().get_node("Main").get_node("Cards").add_child(resource)
+				resource.position = global_position
 				resource.tag = "Log"
 				resource_dropped = true
 				return

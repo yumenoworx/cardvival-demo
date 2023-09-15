@@ -38,7 +38,8 @@ func _on_input_event(viewport, event, shape_idx):
 
 func _on_mouse_entered():
 	$Tag.visible = true
-	position.y -= 11
+	scale.x += 0.011
+	scale.y += 0.011
 	if qty == -1:
 		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 	else:
@@ -46,6 +47,7 @@ func _on_mouse_entered():
 
 
 func _on_mouse_exited():
-	position.y += 11
 	$Tag.visible = false
+	scale.x -= 0.011
+	scale.y -= 0.011
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)

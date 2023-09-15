@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scenes/url_open.gd" id="4_10ux7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqi1i"]
-size = Vector2(119, 18)
+size = Vector2(115, 18)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("4")
@@ -31,10 +31,8 @@ text = "Cardvival! Official Telegram channel: @natsunokaze"
 horizontal_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(380.5, 24)
+position = Vector2(382.5, 24)
 shape = SubResource("RectangleShape2D_vqi1i")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
-[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
-[connection signal="mouse_entered" from="Area2D" to="Area2D" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="Area2D" method="_on_mouse_exited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

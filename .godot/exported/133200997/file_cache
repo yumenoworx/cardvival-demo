@@ -1,0 +1,11 @@
+res://Scenes/Cards/Location.tscn::45f5712c718653d21572e585c7af3e5e::1694777595::res://.godot/exported/133200997/export-2fc057577f5806b8c7e99e495c661013-Location.scn
+res://Scenes/Cards/Resource.tscn::bf4f47b75f3b5ff28410b95a3c566f07::1694777595::res://.godot/exported/133200997/export-1e5fd6ea5b3ccf935fbf5aa32d7cdf81-Resource.scn
+res://Scenes/Cards/Slot.tscn::44a45077463780bbc60368f206a20324::1694777597::res://.godot/exported/133200997/export-2407578111cdced606323c723ebf19a0-Slot.scn
+res://Scenes/Cards/Tool.tscn::612ee71df7663d81bedbfef26453724b::1694777731::res://.godot/exported/133200997/export-34a382dd96cefadf0be49b0c43c71ed6-Tool.scn
+res://Scenes/LocationObjectCards/LocationHolder.tscn::42acc0d1ac6a6352ee95fa266cb43e0d::1694777595::res://.godot/exported/133200997/export-d8feeac04251247e48a34f0ecb4d2147-LocationHolder.scn
+res://Scenes/LocationObjectCards/Tree.tscn::19ef2711b401dd2074be259a1b4ff229::1694777595::res://.godot/exported/133200997/export-454758043a0271e2e50ff285789f5d4b-Tree.scn
+res://Scenes/Global.tscn::8b7927502c3d5793b8e6ec322be3b705::1694777597::res://.godot/exported/133200997/export-f70283d40551af88c23ef0b04b34eedd-Global.scn
+res://Scenes/LocationObjectSpawner.tscn::5131b1b6eeb513fc5e7417eff33ddfcd::1694777595::res://.godot/exported/133200997/export-dac1faa850c2af88159c33ae4cd38ac1-LocationObjectSpawner.scn
+res://Scenes/Main.tscn::59e943c2323bb741e16c4eae1d992462::1694777782::res://.godot/exported/133200997/export-a8e1520d83f25710dd4e3da8c6f32601-Main.scn
+res://Scenes/Spawner.tscn::f16eda19d305ee9b465aa8a767935359::1694777597::res://.godot/exported/133200997/export-88b8326880012e4259d43e8cc1c4d9c3-Spawner.scn
+res://default_env.tres::511a452a16cb12924eaf8e24492e5466::1694777782::res://.godot/exported/133200997/export-7cf3fd67ad9f55210191d77b582b8209-default_env.res

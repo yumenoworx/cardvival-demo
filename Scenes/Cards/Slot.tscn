@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxiom48fno2g"]
+
+[ext_resource type="Script" path="res://Scenes/Cards/Slot.gd" id="1_f7y26"]
+[ext_resource type="Texture2D" uid="uid://snxx276cy6cu" path="res://Sprites/forest.png" id="1_oko5e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsih6"]
+size = Vector2(84, 112)
+
+[node name="Slot" type="Area2D"]
+script = ExtResource("1_f7y26")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("1_oko5e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gsih6")
+
+[node name="Qty" type="Label" parent="."]
+offset_left = -43.0
+offset_top = -83.0
+offset_right = 43.0
+offset_bottom = -57.0
+text = "x32"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Tag" type="Label" parent="."]
+offset_left = -42.0
+offset_top = -85.0
+offset_right = 15.0
+offset_bottom = -55.0
+text = "forest"
+vertical_alignment = 1
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

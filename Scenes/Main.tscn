@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://paeh5h0njko1"]
+
+[ext_resource type="Script" path="res://Scripts/LocationNode.gd" id="2_ichip"]
+[ext_resource type="Script" path="res://Scenes/Cards.gd" id="3_jpqe5"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="4"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("4")
+
+[node name="Location" type="Node2D" parent="."]
+script = ExtResource("2_ichip")
+
+[node name="Cards" type="Node2D" parent="."]
+script = ExtResource("3_jpqe5")
+
+[node name="Inventory" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 466.0
+offset_bottom = 43.0
+text = "Cardvival! Official Telegram channel: @natsunokaze"
+horizontal_alignment = 1

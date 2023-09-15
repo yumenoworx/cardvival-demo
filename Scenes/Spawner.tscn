@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmwhoolcpqrwj"]
+
+[sub_resource type="CompressedTexture2D" id="2"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(190, 256)
+
+[node name="Spawner" type="Area2D"]
+scale = Vector2(0.32, 0.32)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")

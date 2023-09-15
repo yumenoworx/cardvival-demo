@@ -1,8 +1,6 @@
 extends Area2D
 var saved_body = null
-
-func _ready():
-	pass # Replace with function body.
+var default_position 
 
 
 func _process(delta):
@@ -29,8 +27,9 @@ func _on_Area2D_body_entered(body):
 
 
 func _on_Area2D_body_exited(body):
-	if body.tag == "Forest" and body.position != global_position:
+	if body.tag == "Forest" and body.position  != global_position:
 		global.location = null
 		saved_body = null
-		position.y += 176
+		if position.y != 768/2:
+			position.y += 176
 		$AudioStreamPlayer.stop()

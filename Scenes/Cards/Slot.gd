@@ -8,13 +8,13 @@ var qty = -1
 
 func _ready():
 	print(sprite)
+	$Tag.visible = false
 	if qty != -1: $Qty.text = "x" + str(qty)
 	else: $Qty.text = ""
 	$Tag.text = tag
 
 
 func _process(delta):
-	$Tag.visible = false
 	if inventory.inventory != inventory.old_inventory:
 		queue_free()
 

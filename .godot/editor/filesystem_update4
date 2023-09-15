@@ -14,3 +14,11 @@ res://Scripts/Tree.gd
 res://Scenes/url_open.gd
 res://Scripts/Main.gd
 res://Scenes/Cards/Slot.gd
+res://Scenes/Cards.gd
+res://Scripts/Global.gd
+res://Scripts/Inventory.gd
+res://Scripts/Location.gd
+res://Scripts/LocationNode.gd
+res://Scripts/LocationObjectSpawner.gd
+res://Scripts/Resource.gd
+res://Scripts/Tool.gd

@@ -12,13 +12,14 @@ config_version=5
 
 config/name="Cardvival!"
 config/name_localized={
-"ja": "Subscribe to my telegram channel: @natsunokaze"
+"ru": "Кардвиваль!"
 }
 run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.1")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
 boot_splash/show_image=false
 boot_splash/use_filter=false
+config/icon="res://icon.png"
 
 [autoload]
 

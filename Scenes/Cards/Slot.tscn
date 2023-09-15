@@ -29,6 +29,7 @@ text = "x32"
 label_settings = SubResource("LabelSettings_wql1j")
 horizontal_alignment = 2
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Tag" type="Label" parent="."]
 offset_left = -41.0
@@ -38,6 +39,7 @@ offset_bottom = -59.0
 text = "forest"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -10,7 +10,7 @@ var free_inventory = null
 
 func _ready():
 	inventory = [generate_item("Forest", "res://Sprites/forest.png", -1, "location"),
-				 generate_item("Axe", "res://Sprites/axe.png", -1, "tool")]
+				 generate_item("Axe", "res://Sprites/axe.png", -1, "tool", {"strength": 3})]
 	free_inventory = get_tree().get_root().get_node("Main").get_node("Inventory")
 
 
@@ -31,6 +31,7 @@ func _process(delta):
 			slot.qty = item["qty"]
 			slot.sprite = item["texture"]
 			slot.type = item["type"]
+			slot.stats = item["stats"]
 			get_tree().get_root().get_node("Main").get_node("Inventory").add_child(slot)
 			var sprite = slot.get_node("Sprite2D").texture.get_width() * slot.get_node("Sprite2D").get_scale().x
 			if len(inventory) != 1:
@@ -78,5 +79,6 @@ func generate_item(tag, texture, qty=-1, type=null, stats=null):
 		"location": type = "res://Scenes/Cards/Location.tscn"
 		"resource": type = "res://Scenes/Cards/Resource.tscn"
 		"tool": type = "res://Scenes/Cards/Tool.tscn"
+		"weapon": type = "res://Scenes/Cards/Weapon.tscn"
 		_: "res://Scenes/Cards/Resource.tscn"
 	return {"tag": tag, "texture": texture, "qty": qty, "type": type, "stats": stats}

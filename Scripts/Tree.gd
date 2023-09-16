@@ -22,9 +22,10 @@ func _process(delta):
 		if died():
 			$Sprite2D.modulate.a = 0.5
 			drop_resource()
-			timer -= delta
-			if timer <= 0:
-				reset_state()
+			if resource == null or not resource.visible:
+				timer -= delta
+				if timer <= 0:
+					reset_state()
 	else:
 		visible = false
 

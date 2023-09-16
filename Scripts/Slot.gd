@@ -4,6 +4,7 @@ var tag = null
 var type = null
 var sprite = null
 var qty = -1
+var stats = null
 
 
 func _ready():
@@ -28,6 +29,7 @@ func _on_input_event(viewport, event, shape_idx):
 			var item = load(type).instantiate()
 			item.get_node("Sprite2D").set_texture(load(sprite))
 			item.tag = tag
+			item.stats = stats
 			item.position = get_viewport().get_mouse_position()
 			get_tree().get_root().get_node("Main").get_node("Cards").add_child(item)
 			inventory.take_item(inventory.generate_item(tag, sprite, qty, type), -1)

@@ -13,3 +13,8 @@ res://Scripts/LocationObjectSpawner.gd
 res://Scenes/LocationObjectCards/LocationHolder.tscn
 res://Scenes/Global.tscn
 res://Scripts/LocationNode.gd
+res://Scripts/Inventory.gd
+res://Scripts/Resource.gd
+res://Scripts/Location.gd
+res://Scripts/Slot.gd
+res://Scenes/Console.gd

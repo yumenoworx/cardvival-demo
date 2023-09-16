@@ -19,8 +19,11 @@ offset_bottom = 14.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_25oyu")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_25oyu")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

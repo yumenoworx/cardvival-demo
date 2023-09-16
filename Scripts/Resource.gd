@@ -8,7 +8,7 @@ var cooldown = false
 var cooldown_time = 3
 var can_move = false
 var dragging = false
-
+var stats = null
 var old = null
 
 var put_down = false

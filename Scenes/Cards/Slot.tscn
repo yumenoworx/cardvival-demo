@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bxiom48fno2g"]
 
-[ext_resource type="Script" path="res://Scenes/Cards/Slot.gd" id="1_f7y26"]
 [ext_resource type="Texture2D" uid="uid://snxx276cy6cu" path="res://Sprites/forest.png" id="1_oko5e"]
+[ext_resource type="Script" path="res://Scripts/Slot.gd" id="1_p3u57"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gsih6"]
 size = Vector2(84, 112)
@@ -11,7 +11,7 @@ font_size = 13
 font_color = Color(0, 0, 0, 1)
 
 [node name="Slot" type="Area2D"]
-script = ExtResource("1_f7y26")
+script = ExtResource("1_p3u57")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.22, 0.22)

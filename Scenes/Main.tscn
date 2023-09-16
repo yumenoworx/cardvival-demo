@@ -1,13 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://paeh5h0njko1"]
+[gd_scene load_steps=9 format=3 uid="uid://paeh5h0njko1"]
 
 [ext_resource type="Script" path="res://Scripts/LocationNode.gd" id="2_ichip"]
 [ext_resource type="Script" path="res://Scenes/Cards.gd" id="3_jpqe5"]
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="4"]
-[ext_resource type="Script" path="res://Scenes/url_open.gd" id="4_10ux7"]
+[ext_resource type="Script" path="res://Scripts/url_open.gd" id="4_mv0ej"]
 [ext_resource type="Texture2D" uid="uid://cq7h6aopytbs7" path="res://Sprites/telegram-icone-icon-487914085.png" id="5_530wb"]
+[ext_resource type="Script" path="res://Scenes/Console.gd" id="6_nh0rq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqi1i"]
 size = Vector2(427, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdprg"]
+size = Vector2(76, 22)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("4")
@@ -20,26 +24,57 @@ script = ExtResource("3_jpqe5")
 
 [node name="Inventory" type="Node2D" parent="."]
 
-[node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("4_10ux7")
+[node name="Watermark" type="Area2D" parent="."]
+script = ExtResource("4_mv0ej")
 
-[node name="Label" type="Label" parent="Area2D"]
+[node name="Label" type="Label" parent="Watermark"]
 offset_left = 10.0
 offset_top = 11.0
 offset_right = 797.0
 offset_bottom = 43.0
 text = "Cardvival! Official Telegram channel: @natsunokaze"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Watermark"]
 position = Vector2(223.5, 24)
 shape = SubResource("RectangleShape2D_vqi1i")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
-[node name="Telegram" type="Sprite2D" parent="Area2D"]
+[node name="Telegram" type="Sprite2D" parent="Watermark"]
 position = Vector2(426, 24)
 scale = Vector2(0.006, 0.006)
 texture = ExtResource("5_530wb")
 
-[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
-[connection signal="mouse_entered" from="Area2D" to="Area2D" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="Area2D" method="_on_mouse_exited"]
+[node name="Console" type="Area2D" parent="."]
+script = ExtResource("6_nh0rq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Console"]
+position = Vector2(48, 24)
+shape = SubResource("RectangleShape2D_qdprg")
+
+[node name="TextEdit" type="TextEdit" parent="Console"]
+offset_left = 10.0
+offset_top = 39.0
+offset_right = 380.0
+offset_bottom = 69.0
+placeholder_text = "Command"
+
+[node name="Button" type="Button" parent="Console"]
+offset_left = 386.0
+offset_top = 37.0
+offset_right = 437.0
+offset_bottom = 72.0
+text = "Enter"
+flat = true
+
+[node name="Output" type="Label" parent="Console"]
+offset_left = 14.0
+offset_top = 77.0
+offset_right = 440.0
+offset_bottom = 103.0
+text = "*Output*"
+
+[connection signal="input_event" from="Watermark" to="Watermark" method="_on_input_event"]
+[connection signal="mouse_entered" from="Watermark" to="Watermark" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Watermark" to="Watermark" method="_on_mouse_exited"]
+[connection signal="text_changed" from="Console/TextEdit" to="Console" method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="Console/Button" to="Console" method="_on_button_pressed"]

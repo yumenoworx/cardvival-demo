@@ -13,13 +13,11 @@ var saved_body = null
 var stats = {"strength": 3}
 
 
-func _ready():
-	print(tag)
-
-
 func _process(delta):
-	if saved_body != null:
-		position = saved_body.global_position
+	if saved_body != null and not dragging:
+		position = saved_body.position
+		if position == saved_body.position:
+			saved_body.get_node("Sprite2D").visible = false
 	if can_move:
 		move_to_front()
 		position = get_viewport().get_mouse_position() - grab
@@ -37,32 +35,6 @@ func _process(delta):
 		if cooldown_time <= 0:
 			cooldown = false
 			cooldown_time = 3
-
-
-func damage_body(body):
-	body.hit(stats["strength"])
-	$AudioStreamPlayer2D.stop()
-	$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/Tools/Axe/Hit.mp3")
-	$AudioStreamPlayer2D.play()
-
-
-func _on_audio_stream_player_2d_finished():
-	if $AudioStreamPlayer2D.stream.resource_path == "res://Sounds/Inventory/put.mp3":
-		queue_free()
-
-
-func _on_area_entered(area):
-	if area.get("tag"):
-		if area.tag == "Tree":
-			area.get_node("Sprite2D").visible = false
-			saved_body = area
-
-
-func _on_area_exited(area):
-	if area.get("tag"):
-		if area.tag == "Tree":
-			area.get_node("Sprite2D").visible = true
-			saved_body = null
 
 
 func _on_input_event(_viewport, event, _shape_idx):
@@ -100,12 +72,12 @@ func on_lmb_released():
 	if saved_body != null:
 		if not saved_body.died():
 			damage_body(saved_body)
-			if saved_body.died():
-				var me = inventory.generate_item(tag, 
-												 $Sprite2D.texture.resource_path,
-												 -1, "tool", null)
-				inventory.add_item(me, -1)
-				queue_free()
+		else:
+			var me = inventory.generate_item(tag, 
+											 $Sprite2D.texture.resource_path,
+											 -1, "tool", stats)
+			inventory.add_item(me, -1)
+			queue_free()
 	else:
 		$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/down.mp3")
 		$AudioStreamPlayer2D.play()
@@ -127,9 +99,32 @@ func on_rmb_released():
 	$AudioStreamPlayer2D.stream = load("res://Sounds/Inventory/put.mp3")
 	$AudioStreamPlayer2D.play()
 	var me = inventory.generate_item(tag, $Sprite2D.texture.resource_path, 
-									 -1, "tool", null)
+									 -1, "tool", stats)
 	inventory.add_item(me, -1)
 	visible = false
+
+
+func damage_body(body):
+	body.hit(stats["strength"])
+	$AudioStreamPlayer2D.stop()
+	$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/Tools/Axe/Hit.mp3")
+	$AudioStreamPlayer2D.play()
+
+
+func _on_area_entered(area):
+	if area.get("tag") and saved_body == null:
+		if area.tag == "Tree":
+			area.get_node("Sprite2D").visible = false
+			saved_body = area
+			print("Tree entered")
+
+
+func _on_area_exited(area):
+	if area.get("tag") and saved_body != null:
+		if area.tag == "Tree":
+			area.get_node("Sprite2D").visible = true
+			saved_body = null
+			print("Tree exited")
 
 
 func _on_mouse_entered():
@@ -141,3 +136,8 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+
+
+func _on_audio_stream_player_2d_finished():
+	if $AudioStreamPlayer2D.stream.resource_path == "res://Sounds/Inventory/put.mp3":
+		queue_free()

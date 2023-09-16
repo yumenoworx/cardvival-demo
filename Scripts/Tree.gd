@@ -2,52 +2,36 @@ extends Area2D
 
 
 var saved_body = null
-var attacked = false
+var first_attack = false
 var hp = 15
 var recovery_time = 5 
 var resource_dropped = false
 var resource = null
 
+
 func _process(delta):
-	if resource != null:
-		return
 	if global.location == "Forest":
 		visible = true
 		if hp > 0:
 			$TreeHP.text = str(hp)
 		else:
 			$TreeHP.text = ""
-		if saved_body != null and saved_body.dragging:
-			$Sprite2D.visible = true
 		if saved_body != null and not saved_body.dragging and hp > 0:
 			$Sprite2D.visible = false
 			saved_body.position = global_position
-			if not attacked and not saved_body.cooldown:
-				saved_body.get_node("AudioStreamPlayer2D").stream = null
-				$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/Tools/Axe/Hit.mp3")
-				$AudioStreamPlayer2D.play()
-				hp -= 3
-				attacked = true
-				saved_body.put_down = false
+			if not first_attack and not saved_body.cooldown:
+				hit(3)
+				first_attack = true
 			elif saved_body.put_down and not saved_body.cooldown:
-				saved_body.get_node("AudioStreamPlayer2D").stream = null
-				$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/Tools/Axe/Hit.mp3")
-				$AudioStreamPlayer2D.play()
-				hp -= 3
-				saved_body.put_down = false
-		elif hp <= 0:
+				hit(3)
+		elif saved_body == null and resource == null:
+			$Sprite2D.visible = true
+		if hp <= 0:
 			$Sprite2D.modulate.a = 0.5
 			if not resource_dropped:
-				saved_body.position.y += 210
-				var item = inventory.generate_item("Axe", saved_body.get_node("Sprite2D").texture.resource_path, -1, "tool", null)
-				saved_body.queue_free()
-				inventory.add_item(item, -1)
-				resource = load("res://Scenes/Cards/Resource.tscn").instantiate()
-				get_tree().get_root().get_node("Main").get_node("Cards").add_child(resource)
-				resource.position = global_position
-				resource.tag = "Log"
+				hide_tool()
+				drop_resource()
 				resource_dropped = true
-				return
 			if resource == null:
 				recovery_time -= delta
 				if recovery_time <= 0:
@@ -57,6 +41,8 @@ func _process(delta):
 					resource_dropped = false
 			else:
 				if resource.dragging:
+					$Sprite2D.visible = true
+				elif not resource.visible:
 					$Sprite2D.visible = true
 				else:
 					$Sprite2D.visible = false
@@ -69,10 +55,33 @@ func _on_Tree_body_entered(body):
 		saved_body = body
 
 
+func hit(str):
+	saved_body.get_node("AudioStreamPlayer2D").stream = null
+	$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/Tools/Axe/Hit.mp3")
+	$AudioStreamPlayer2D.play()
+	hp -= str
+	saved_body.put_down = false
+
+
+func drop_resource():
+	resource = load("res://Scenes/Cards/Resource.tscn").instantiate()
+	get_tree().get_root().get_node("Main").get_node("Cards").add_child(resource)
+	resource.position = global_position
+	resource.tag = "Log"
+
+
+func hide_tool():
+	var item = inventory.generate_item(saved_body.tag, 
+									   saved_body.get_node("Sprite2D").texture.resource_path, 
+									   -1, "tool", null)
+	saved_body.free()
+	inventory.add_item(item, -1)
+
+
 func _on_Tree_body_exited(body):
 	if body.tag == "Axe":
 		saved_body = null
-		attacked = false
+		first_attack = false
 		$Sprite2D.visible = true
 
 

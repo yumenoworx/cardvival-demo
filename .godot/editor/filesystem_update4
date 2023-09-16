@@ -12,3 +12,5 @@ res://Scenes/icon.gd
 res://Scenes/LocationObjectSpawner.tscn
 res://Scenes/Spawner.tscn
 res://Scenes/url_open.gd
+res://Scenes/LocationObjectCards/Tree.tscn
+res://Scripts/Inventory.gd

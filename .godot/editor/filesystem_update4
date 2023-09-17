@@ -12,3 +12,4 @@ res://Scenes/LocationObjectCards/LocationHolder.tscn
 res://Scenes/Global.tscn
 res://Scenes/Console.gd
 res://Scripts/utils.gd
+res://Scripts/Inventory.gd

@@ -53,7 +53,8 @@ func get_x_with_gap(count, width, gap=10): return (count * width + (count - 1) *
 func add_item(item, qty):
 	for slot in inventory:
 		if slot["tag"] == item["tag"]:
-			slot["qty"] += qty
+			if slot["qty"] != -1:
+				slot["qty"] += qty
 			update_slots()
 			return
 	inventory.append(item)

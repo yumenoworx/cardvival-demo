@@ -26,6 +26,7 @@ config/icon="res://icon.png"
 
 global="*res://Scripts/Global.gd"
 inventory="*res://Scripts/Inventory.gd"
+utils="*res://Scripts/utils.gd"
 
 [display]
 

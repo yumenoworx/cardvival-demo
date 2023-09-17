@@ -65,7 +65,6 @@ middle_mouse_paste_enabled = false
 draw_control_chars = true
 draw_tabs = true
 draw_spaces = true
-caret_type = 1
 caret_blink = true
 text_direction = 1
 language = "en"

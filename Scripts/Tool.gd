@@ -13,6 +13,25 @@ var saved_body = null
 var stats = {"strength": 3}
 
 
+func _on_area_entered(_area):
+	var saved_bodies = get_overlapping_areas()
+	for body in saved_bodies:
+		if body.get("tag"):
+			if body.tag == "Tree":
+				saved_body = body
+				return
+
+
+func _on_area_exited(_area):
+	var saved_bodies = get_overlapping_areas()
+	saved_body == null
+	for body in saved_bodies:
+		if body.get("tag"):
+			if body.tag == "Tree":
+				saved_body = body
+				return
+
+
 func _process(delta):
 	if saved_body != null and not dragging:
 		position = saved_body.position
@@ -109,22 +128,6 @@ func damage_body(body):
 	$AudioStreamPlayer2D.stop()
 	$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/Tools/Axe/Hit.mp3")
 	$AudioStreamPlayer2D.play()
-
-
-func _on_area_entered(area):
-	if area.get("tag") and saved_body == null:
-		if area.tag == "Tree":
-			area.get_node("Sprite2D").visible = false
-			saved_body = area
-			print("Tree entered")
-
-
-func _on_area_exited(area):
-	if area.get("tag") and saved_body != null:
-		if area.tag == "Tree":
-			area.get_node("Sprite2D").visible = true
-			saved_body = null
-			print("Tree exited")
 
 
 func _on_mouse_entered():

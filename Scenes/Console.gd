@@ -20,18 +20,19 @@ func _process(_delta):
 
 func _on_text_edit_text_changed():
 	$TextEdit.text = $TextEdit.text.replace("\n", "").replace("`", "")
+	$TextEdit.set_caret_column(len($TextEdit.text))
 	command = $TextEdit.text
 
 func _on_button_pressed():
 	if command == "":
-		$Output.text = "Nothing happened..."
+		send("Nothing happened...")
 	elif command.split(" ")[0] == "quit":
 		get_tree().quit()
 	elif command.split(" ")[0] == "echo":
 		var text = command.split(" ", true, 1)[1]
-		$Output.text = text
+		send(text)
 	elif command.split(" ")[0] == "help":
-		$Output.text = "Nobody help you."
+		send("Nobody help you.")
 	elif command.split(" ")[0] == "spawn_instance":
 		var instance = null
 		match command.split(" ")[1]:
@@ -50,10 +51,11 @@ func _on_button_pressed():
 			if pos.x >= -59 and pos.x <= 59 and pos.y >= -82 and pos.y <= 82:
 				tags.append(node.tag)
 				node.queue_free()
-		$Output.text = "Deleted: " + str(tags)
+		send("Deleted: " + str(tags))
 		print($Output.text)
-		return
 	else:
-		$Output.text = command + " command doesn't exist."
+		send(command + " command doesn't exist.")
+func send(info: String):
+	$Output.text = $Output.text + "\n" + $TextEdit.text + "\n>> " + info
 	$TextEdit.clear()
 	_on_text_edit_text_changed()

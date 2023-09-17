@@ -10,3 +10,4 @@ res://Scenes/Spawner.tscn
 res://Scenes/LocationObjectCards/Tree.tscn
 res://Scenes/LocationObjectCards/LocationHolder.tscn
 res://Scenes/Global.tscn
+res://Scenes/Console.gd

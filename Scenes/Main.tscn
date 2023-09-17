@@ -47,7 +47,7 @@ script = ExtResource("6_nh0rq")
 [node name="TextEdit" type="TextEdit" parent="Console"]
 offset_left = 10.0
 offset_top = 39.0
-offset_right = 380.0
+offset_right = 359.0
 offset_bottom = 69.0
 placeholder_text = "Command"
 context_menu_enabled = false
@@ -63,12 +63,12 @@ text_direction = 1
 language = "en"
 
 [node name="Button" type="Button" parent="Console"]
-offset_left = 391.0
-offset_top = 37.0
-offset_right = 442.0
+offset_left = 362.0
+offset_top = 39.0
+offset_right = 438.0
 offset_bottom = 72.0
-text = "Enter"
-flat = true
+text = "Enter???"
+expand_icon = true
 
 [node name="Output" type="Label" parent="Console"]
 offset_left = 14.0

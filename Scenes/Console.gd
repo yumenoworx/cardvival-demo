@@ -24,7 +24,8 @@ func _on_text_edit_text_changed():
 	command = $TextEdit.text
 
 func _on_button_pressed():
-	if command == "":
+	$Button.text = utils.random_choice(["ヾ(•ω•`)o", "o((>ω< ))o", "o(≧∀≦)o", "ヾ(≧ ▽ ≦)ゝ"])
+	if command == "" or command == null:
 		send("Nothing happened...")
 	match command.split(" ")[0]:
 		"quit":

@@ -20,16 +20,18 @@ func _on_area_entered(_area):
 			if body.tag == "Tree":
 				saved_body = body
 				return
+	saved_body = null
 
 
 func _on_area_exited(_area):
 	var saved_bodies = get_overlapping_areas()
-	saved_body == null
+	print(saved_bodies)
 	for body in saved_bodies:
 		if body.get("tag"):
 			if body.tag == "Tree":
 				saved_body = body
 				return
+	saved_body = null
 
 
 func _process(delta):

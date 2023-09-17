@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 var command = null
 
 func _ready():
@@ -54,7 +54,10 @@ func _on_button_pressed():
 					tags.append(node.tag)
 					node.queue_free()
 			send("Deleted: " + str(tags))
-			print($Output.text)
+		"clear":
+			$Output.text = ""
+			$TextEdit.clear()
+			_on_text_edit_text_changed()
 		_:
 			send(command + " command doesn't exist.")
 

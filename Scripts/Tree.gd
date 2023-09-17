@@ -15,10 +15,13 @@ func _process(delta):
 	if global.location == "Forest":
 		visible = true
 		draw_hp()
-		if resource == null or resource.dragging or not resource.visible:
-			$Sprite2D.visible = true
+		if resource != null:
+			if not resource.visible or resource.dragging:
+				if $Sprite2D.visible == false: $Sprite2D.visible = true
+			else:
+				if $Sprite2D.visible == true: $Sprite2D.visible = false
 		else:
-			$Sprite2D.visible = false
+			$Sprite2D.visible = true
 		if died():
 			$Sprite2D.modulate.a = 0.5
 			drop_resource()
@@ -33,7 +36,7 @@ func _process(delta):
 func died(): return hp <= 0
 
 
-func hit(str): hp -= str
+func hit(strength): hp -= strength
 
 func draw_hp():
 	if hp > 0: $HP.text = str(hp)
@@ -52,8 +55,11 @@ func drop_resource():
 func reset_state():
 	timer = 5
 	hp = 15
-	resource_dropped = false
 	$Sprite2D.modulate.a = 1
+	$Sprite2D.visible = true
+	visible = true
+	resource_dropped = false
+	resource = null
 
 
 func _on_audio_stream_player_2d_finished():

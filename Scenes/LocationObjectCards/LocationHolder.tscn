@@ -4,10 +4,20 @@
 [ext_resource type="Script" path="res://Scripts/LocationHolder.gd" id="1_8qxa4"]
 
 [sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(61, 82)
+size = Vector2(122, 164)
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_8qxa4")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -104.0
+offset_top = -40.0
+offset_right = 107.0
+offset_bottom = 38.0
+text = "put your 
+location card 
+here."
+horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.32, 0.32)
@@ -17,6 +27,7 @@ texture = ExtResource("1")
 shape = SubResource("1")
 
 [node name="LocationName" type="Label" parent="."]
+visible = false
 offset_left = -60.0
 offset_top = -104.0
 offset_right = 61.0

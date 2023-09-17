@@ -11,13 +11,13 @@ var old = null
 var put_down = false
 var saved_body = null
 var stats = {"strength": 3}
-
+var stream = null
 
 func _on_area_entered(_area):
 	var saved_bodies = get_overlapping_areas()
 	for body in saved_bodies:
 		if body.get("tag"):
-			if body.tag == "Tree":
+			if body.tag == "Tree" and not body.died():
 				saved_body = body
 				return
 	saved_body = null
@@ -25,20 +25,18 @@ func _on_area_entered(_area):
 
 func _on_area_exited(_area):
 	var saved_bodies = get_overlapping_areas()
-	print(saved_bodies)
 	for body in saved_bodies:
-		if body.get("tag"):
-			if body.tag == "Tree":
-				saved_body = body
-				return
+		if body.get("tag") == "Tree":
+			saved_body =  body
+			return
+	if saved_body != null:
+		saved_body.get_node("Sprite2D").visible = true
 	saved_body = null
 
 
 func _process(delta):
 	if saved_body != null and not dragging:
 		position = saved_body.position
-		if position == saved_body.position:
-			saved_body.get_node("Sprite2D").visible = false
 	if can_move:
 		move_to_front()
 		position = get_viewport().get_mouse_position() - grab
@@ -91,14 +89,14 @@ func on_lmb_released():
 	$Sprite2D.scale.x = 0.32
 	$Sprite2D.scale.y = 0.32
 	if saved_body != null:
-		if not saved_body.died():
-			damage_body(saved_body)
-		else:
+		damage_body(saved_body)
+		if saved_body.died():
 			var me = inventory.generate_item(tag, 
 											 $Sprite2D.texture.resource_path,
 											 -1, "tool", stats)
 			inventory.add_item(me, -1)
-			queue_free()
+			saved_body.get_node("Sprite2D").visible = true
+			visible = false
 	else:
 		$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/down.mp3")
 		$AudioStreamPlayer2D.play()
@@ -127,8 +125,9 @@ func on_rmb_released():
 
 func damage_body(body):
 	body.hit(stats["strength"])
-	$AudioStreamPlayer2D.stop()
-	$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/Tools/Axe/Hit.mp3")
+	print("str: " + str(stats["strength"]))
+	stream = utils.random_choice(utils.get_files("res://Sounds/Cards/Tools/Axe/"))
+	$AudioStreamPlayer2D.stream = load(stream)
 	$AudioStreamPlayer2D.play()
 
 
@@ -145,4 +144,6 @@ func _on_mouse_exited():
 
 func _on_audio_stream_player_2d_finished():
 	if $AudioStreamPlayer2D.stream.resource_path == "res://Sounds/Inventory/put.mp3":
+		queue_free()
+	elif saved_body != null and saved_body.died():
 		queue_free()

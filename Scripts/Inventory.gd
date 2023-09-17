@@ -55,6 +55,8 @@ func add_item(item, qty):
 		if slot["tag"] == item["tag"]:
 			if slot["qty"] != -1:
 				slot["qty"] += qty
+			if slot["stats"] != item["stats"]:
+				slot["stats"] = item["stats"]
 			update_slots()
 			return
 	inventory.append(item)

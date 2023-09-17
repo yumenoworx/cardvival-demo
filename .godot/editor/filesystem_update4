@@ -18,3 +18,8 @@ res://Scripts/Resource.gd
 res://Scripts/Location.gd
 res://Scripts/Slot.gd
 res://Scenes/Console.gd
+res://Scenes/Cards.gd
+res://Scripts/Global.gd
+res://Scripts/LocationHolder.gd
+res://Scripts/Main.gd
+res://Scripts/url_open.gd

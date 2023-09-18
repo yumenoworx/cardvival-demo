@@ -10,24 +10,40 @@ var dragging = false
 var old = null
 var put_down = false
 var saved_body = null
+var alt_body = null
 var stats = {"strength": 3}
 var stream = null
+var overlapping_areas = []
+
 
 func _on_area_entered(_area):
-	var saved_bodies = get_overlapping_areas()
+	overlapping_areas = get_overlapping_areas()
+	var saved_bodies = overlapping_areas
 	var saved_trees = []
 	for body in saved_bodies:
 		if body.get("tag"):
 			if body.tag == "Tree" and not body.died() and body.visible:
 				saved_trees.append(body)
+	print(saved_trees)
 	if saved_trees != []:
-		saved_body = saved_trees[saved_trees.size()-1]
+		if saved_trees.size() >= 2:
+			var first_dist = saved_trees[saved_trees.size()-1].position - position
+			var second_dist = saved_trees[saved_trees.size()-2].position - position
+			if first_dist > second_dist:
+				saved_body = saved_trees[saved_trees.size()-1]
+				alt_body = saved_trees[saved_trees.size()-2]
+			else:
+				saved_body = saved_trees[saved_trees.size()-2]
+				alt_body = saved_trees[saved_trees.size()-1]
+		else:
+			saved_body = saved_trees[0]
 	else:
 		saved_body = null
 
 
 func _on_area_exited(_area):
-	var saved_bodies = get_overlapping_areas()
+	overlapping_areas = get_overlapping_areas()
+	var saved_bodies = overlapping_areas
 	var saved_trees = []
 	for body in saved_bodies:
 		if body.get("tag"):
@@ -94,6 +110,10 @@ func on_lmb_released():
 	dragging = false
 	$Sprite2D.scale.x = 0.32
 	$Sprite2D.scale.y = 0.32
+	if alt_body != null:
+		if randf_range(0, 1) < 0.1:
+			damage_body(alt_body)
+		alt_body = null
 	if saved_body != null:
 		damage_body(saved_body)
 		if saved_body.died():

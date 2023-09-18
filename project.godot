@@ -33,7 +33,9 @@ utils="*res://Scripts/utils.gd"
 window/size/viewport_width=1366
 window/size/viewport_height=768
 window/size/resizable=false
+window/stretch/mode="viewport"
 window/per_pixel_transparency/allowed=true
+window/handheld/orientation=1
 window/vsync/vsync_mode=2
 
 [global]
@@ -84,5 +86,6 @@ common/enable_pause_aware_picking=true
 
 renderer/rendering_method="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.101961, 0.101961, 0.101961, 1)
+anti_aliasing/quality/msaa_2d=1
 environment/defaults/default_environment="res://default_env.tres"
 2d/snapping/use_gpu_pixel_snap=true

@@ -6,10 +6,11 @@
 [sub_resource type="RectangleShape2D" id="3"]
 size = Vector2(122, 164)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Resource" type="CharacterBody2D"]
 script = ExtResource("2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 2
 scale = Vector2(0.32, 0.32)
 texture = ExtResource("1")
 

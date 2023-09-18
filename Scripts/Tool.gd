@@ -15,28 +15,36 @@ var stream = null
 
 func _on_area_entered(_area):
 	var saved_bodies = get_overlapping_areas()
+	var saved_trees = []
 	for body in saved_bodies:
 		if body.get("tag"):
-			if body.tag == "Tree" and not body.died():
-				saved_body = body
-				return
-	saved_body = null
+			if body.tag == "Tree" and not body.died() and body.visible:
+				saved_trees.append(body)
+	if saved_trees != []:
+		saved_body = saved_trees[saved_trees.size()-1]
+	else:
+		saved_body = null
 
 
 func _on_area_exited(_area):
 	var saved_bodies = get_overlapping_areas()
+	var saved_trees = []
 	for body in saved_bodies:
-		if body.get("tag") == "Tree":
-			saved_body =  body
-			return
-	if saved_body != null:
-		saved_body.get_node("Sprite2D").visible = true
-	saved_body = null
+		if body.get("tag"):
+			if body.tag == "Tree" and not body.died() and body.visible:
+				saved_trees.append(body)
+	if saved_trees != []:
+		saved_body = saved_trees[saved_trees.size()-1]
+	else:
+		if saved_body:
+			saved_body.get_node("Sprite2D").visible = true
+		saved_body = null
 
 
 func _process(delta):
 	if saved_body != null and not dragging:
 		position = saved_body.position
+		saved_body.get_node("Sprite2D").visible = false
 	if can_move:
 		move_to_front()
 		position = get_viewport().get_mouse_position() - grab
@@ -90,6 +98,7 @@ func on_lmb_released():
 	$Sprite2D.scale.y = 0.32
 	if saved_body != null:
 		damage_body(saved_body)
+		saved_body.get_node("Sprite2D").visible = false
 		if saved_body.died():
 			var me = inventory.generate_item(tag, 
 											 $Sprite2D.texture.resource_path,

@@ -27,14 +27,8 @@ func _on_area_entered(_area):
 	print(saved_trees)
 	if saved_trees != []:
 		if saved_trees.size() >= 2:
-			var first_dist = saved_trees[saved_trees.size()-1].position - position
-			var second_dist = saved_trees[saved_trees.size()-2].position - position
-			if first_dist > second_dist:
-				saved_body = saved_trees[saved_trees.size()-1]
-				alt_body = saved_trees[saved_trees.size()-2]
-			else:
-				saved_body = saved_trees[saved_trees.size()-2]
-				alt_body = saved_trees[saved_trees.size()-1]
+			saved_body = saved_trees[saved_trees.size()-1]
+			alt_body = saved_trees[saved_trees.size()-2]
 		else:
 			saved_body = saved_trees[0]
 	else:
@@ -49,10 +43,15 @@ func _on_area_exited(_area):
 		if body.get("tag"):
 			if body.tag == "Tree" and not body.died() and body.visible:
 				saved_trees.append(body)
+	print(saved_trees)
 	if saved_trees != []:
-		saved_body = saved_trees[saved_trees.size()-1]
-		return
-	saved_body = null
+		if saved_trees.size() >= 2:
+			saved_body = saved_trees[saved_trees.size()-1]
+			alt_body = saved_trees[saved_trees.size()-2]
+		else:
+			saved_body = saved_trees[0]
+	else:
+		saved_body = null
 
 
 func _process(delta):

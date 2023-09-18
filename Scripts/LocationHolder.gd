@@ -4,7 +4,7 @@ var default_position
 
 
 func _process(delta):
-	if saved_body != null and not saved_body.dragging:
+	if saved_body != null and saved_body.visible and not saved_body.dragging:
 		$Sprite2D.visible = false
 		if $LocationName.text == "??????":
 			position.y -= 176
@@ -13,6 +13,8 @@ func _process(delta):
 		if $AudioStreamPlayer.playing == false:
 			$AudioStreamPlayer.play()
 	else:
+		if not $Sprite2D.visible:
+			position.y += 176
 		$Sprite2D.visible = true
 	if global.location != null:
 		$LocationName.text = global.location

@@ -7,6 +7,7 @@ var hp = 15
 var recovery_time = 5 
 var resource_dropped = false
 var resource = null
+var tool = null
 var tag = "Tree"
 var timer = 5
 
@@ -17,9 +18,14 @@ func _process(delta):
 		draw_hp()
 		if resource != null:
 			if not resource.visible or resource.dragging:
-				if $Sprite2D.visible == false: $Sprite2D.visible = true
+				$Sprite2D.visible = true
 			else:
-				if $Sprite2D.visible == true: $Sprite2D.visible = false
+				$Sprite2D.visible = false
+		elif tool != null:
+			if not tool.visible or tool.dragging:
+				$Sprite2D.visible = true
+			elif not tool.dragging and tool.position == global_position:
+				$Sprite2D.visible = false
 		else:
 			$Sprite2D.visible = true
 		if died():

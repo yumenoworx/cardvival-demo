@@ -35,16 +35,14 @@ func _on_area_exited(_area):
 				saved_trees.append(body)
 	if saved_trees != []:
 		saved_body = saved_trees[saved_trees.size()-1]
-	else:
-		if saved_body:
-			saved_body.get_node("Sprite2D").visible = true
-		saved_body = null
+		return
+	saved_body = null
 
 
 func _process(delta):
-	if saved_body != null and not dragging:
+	if saved_body and not dragging:
 		position = saved_body.position
-		saved_body.get_node("Sprite2D").visible = false
+		saved_body.tool = self
 	if can_move:
 		move_to_front()
 		position = get_viewport().get_mouse_position() - grab
@@ -55,7 +53,7 @@ func _process(delta):
 		if mouse_pos.x <= 0 or mouse_pos.x >= window_size.x or mouse_pos.y <= 0 or mouse_pos.y >= window_size.y:
 			Input.action_release("left_mb")
 			on_lmb_released()
-		if position.x != old.x or position.y != old.y and dragging == false:
+		if position.x != old.x or position.y != old.y:
 			dragging = true
 	if cooldown:
 		cooldown_time -= delta
@@ -98,13 +96,11 @@ func on_lmb_released():
 	$Sprite2D.scale.y = 0.32
 	if saved_body != null:
 		damage_body(saved_body)
-		saved_body.get_node("Sprite2D").visible = false
 		if saved_body.died():
 			var me = inventory.generate_item(tag, 
 											 $Sprite2D.texture.resource_path,
 											 -1, "tool", stats)
 			inventory.add_item(me, -1)
-			saved_body.get_node("Sprite2D").visible = true
 			visible = false
 	else:
 		$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/down.mp3")

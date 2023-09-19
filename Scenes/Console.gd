@@ -30,6 +30,7 @@ func _on_button_pressed():
 	$AudioStreamPlayer.play()
 	if command == "" or command == null:
 		send("Nothing happened...")
+		return
 	match command.split(" ")[0]:
 		"quit":
 			get_tree().quit()

@@ -76,6 +76,8 @@ offset_top = 47.0
 offset_right = 440.0
 offset_bottom = 373.0
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Console"]
+
 [connection signal="input_event" from="Watermark" to="Watermark" method="_on_input_event"]
 [connection signal="mouse_entered" from="Watermark" to="Watermark" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Watermark" to="Watermark" method="_on_mouse_exited"]

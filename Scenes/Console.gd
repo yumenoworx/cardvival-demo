@@ -25,6 +25,9 @@ func _on_text_edit_text_changed():
 
 func _on_button_pressed():
 	$Button.text = utils.random_choice(["ヾ(•ω•`)o", "o((>ω< ))o", "o(≧∀≦)o", "ヾ(≧ ▽ ≦)ゝ"])
+	var stream = utils.random_choice(utils.get_files("res://Sounds/Inventory/slots/"))
+	$AudioStreamPlayer.stream = load(stream)
+	$AudioStreamPlayer.play()
 	if command == "" or command == null:
 		send("Nothing happened...")
 	match command.split(" ")[0]:

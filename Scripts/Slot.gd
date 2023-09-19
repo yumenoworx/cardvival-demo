@@ -42,6 +42,10 @@ func _on_mouse_entered():
 	$Tag.visible = true
 	scale.x += 0.011
 	scale.y += 0.011
+	var stream = utils.random_choice(utils.get_files("res://Sounds/Inventory/slots/"))
+	print(stream)
+	$AudioStreamPlayer.stream = load(stream)
+	$AudioStreamPlayer.play()
 	if qty == -1:
 		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 	else:

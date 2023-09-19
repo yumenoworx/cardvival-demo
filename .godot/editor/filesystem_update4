@@ -11,3 +11,4 @@ res://Scenes/LocationObjectCards/Tree.tscn
 res://Scenes/LocationObjectCards/LocationHolder.tscn
 res://Scenes/Global.tscn
 res://Scripts/Main.gd
+res://Scripts/Slot.gd

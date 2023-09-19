@@ -30,8 +30,8 @@ func _on_button_pressed():
 	$AudioStreamPlayer.play()
 	if command == "" or command.replace(" ", "") == "" or command == null:
 		$TextEdit.text = utils.random_choice(["Hello world!", 
-											"I divided the number by zero!",
-											"I sent my idea to the developers!"])
+											  "I divided the number by zero!",
+											  "I sent my idea to the developers!"])
 		send("Nothing happened...")
 		return
 	match command.split(" ")[0]:

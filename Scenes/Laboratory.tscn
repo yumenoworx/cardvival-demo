@@ -87,5 +87,8 @@ offset_bottom = 368.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Console"]
 
+[node name="Inventory" type="Node2D" parent="."]
+visible = false
+
 [connection signal="text_changed" from="Console/TextEdit" to="Console" method="_on_text_edit_text_changed"]
 [connection signal="pressed" from="Console/Button" to="Console" method="_on_button_pressed"]

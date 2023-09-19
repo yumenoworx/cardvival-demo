@@ -39,10 +39,14 @@ func _process(delta):
 		visible = false
 
 
-func died(): return hp <= 0
+func died(): 
+	if hp <= 0 and immortal:
+		hp = 15
+		return hp <= 0
+	return hp <= 0
 
 
-func hit(strength): if not immortal: hp -= strength
+func hit(strength): hp -= strength
 
 func draw_hp():
 	$ProgressBar.max_value = 15

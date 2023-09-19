@@ -4,6 +4,11 @@ var default_position
 
 
 func _process(delta):
+	if global.location_card_selected:
+		$LocationCardSprite.visible = true
+		$LocationCardSprite.texture = global.location_card_selected.get_node("Sprite2D").texture
+	else:
+		$LocationCardSprite.visible = false
 	if saved_body != null and saved_body.visible and not saved_body.dragging:
 		$Sprite2D.visible = false
 		if $LocationName.text == "??????":

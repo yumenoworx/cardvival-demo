@@ -50,6 +50,7 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 func on_lmb_pressed():
 	put_down = false
 	can_move = true
+	global.location_card_selected = self
 	move_to_front()
 	$Sprite2D.scale.x = 0.32 + 0.017
 	$Sprite2D.scale.y = 0.32 + 0.017
@@ -64,6 +65,7 @@ func on_lmb_released():
 	put_down = true
 	can_move = false
 	dragging = false
+	global.location_card_selected = null
 	$Sprite2D.scale.x = 0.32
 	$Sprite2D.scale.y = 0.32
 	$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/down.mp3")
@@ -82,6 +84,7 @@ func on_rmb_pressed():
 func on_rmb_released():
 	$Sprite2D.scale.x = 0.32
 	$Sprite2D.scale.y = 0.32
+	global.location_card_selected = null
 	$AudioStreamPlayer2D.stop()
 	$AudioStreamPlayer2D.stream = load("res://Sounds/Inventory/put.mp3")
 	$AudioStreamPlayer2D.play()

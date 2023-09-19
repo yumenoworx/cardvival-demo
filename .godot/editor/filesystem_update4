@@ -13,3 +13,6 @@ res://Scenes/Global.tscn
 res://Scripts/Main.gd
 res://Scripts/Slot.gd
 res://Scenes/Console.gd
+res://Scripts/Global.gd
+res://Scripts/LocationHolder.gd
+res://Scripts/Location.gd

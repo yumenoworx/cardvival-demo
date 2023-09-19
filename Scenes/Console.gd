@@ -42,22 +42,22 @@ func _on_button_pressed():
 			send(text)
 		"help":
 			send("Nobody help you.")
-		"spawn_instance":
+		"spawn_card":
 			var instance = null
 			if command.split(" ").size() >= 2:
 				match command.split(" ")[1]:
 					"tool": instance = "res://Scenes/Cards/Tool.tscn"
 					"location": instance = "res://Scenes/Cards/Location.tscn"
 					"resource": instance = "res://Scenes/Cards/Resource.tscn"
-					_: send("spawn_instance [tool|location|resource]"); return
+					_: send("spawn_card [tool|location|resource]"); return
 				var item = load(instance).instantiate()
 				
 				get_tree().get_root().get_node("Main").get_node("Cards").add_child(item)
 				item.position = get_viewport().get_mouse_position()
 				send("Spawned: " + command.split(" ")[1] + " ({i})".format({"i": item.scene_file_path}))
 			else:
-				send("spawn_instance [tool|location|resource]")
-		"remove_instance":
+				send("spawn_card [tool|location|resource]")
+		"remove_card":
 			var tags = []
 			for node in get_tree().get_root().get_node("Main").get_node("Cards").get_children(false):
 				var pos = node.position - get_viewport().get_mouse_position()

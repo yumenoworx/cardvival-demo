@@ -71,6 +71,8 @@ func _on_button_pressed():
 
 
 func send(info: String):
+	if $Output.text.count("\n") == 26:
+		$Output.text = ""
 	$Output.text = $Output.text + "\n" + $TextEdit.text + "\n>> " + info
 	$TextEdit.clear()
 	_on_text_edit_text_changed()

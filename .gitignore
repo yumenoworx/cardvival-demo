@@ -1,5 +1,6 @@
+.mono
 .mono/*
-.godot/exported/*
+.godot/editor
 .godot/editor/*
 *.cfg
 !export_presets.cfg

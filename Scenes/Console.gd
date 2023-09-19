@@ -1,5 +1,5 @@
 extends Node2D
-var command = null
+var command = ""
 
 func _ready():
 	visible = false
@@ -28,7 +28,10 @@ func _on_button_pressed():
 	var stream = utils.random_choice(utils.get_files("res://Sounds/Inventory/slots/"))
 	$AudioStreamPlayer.stream = load(stream)
 	$AudioStreamPlayer.play()
-	if command == "" or command == null:
+	if command == "" or command.replace(" ", "") == "" or command == null:
+		$TextEdit.text = utils.random_choice(["Hello world!", 
+											"I divided the number by zero!",
+											"I sent my idea to the developers!"])
 		send("Nothing happened...")
 		return
 	match command.split(" ")[0]:

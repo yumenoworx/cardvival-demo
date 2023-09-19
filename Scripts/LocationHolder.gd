@@ -1,6 +1,7 @@
 extends Area2D
 var saved_body = null
 var default_position 
+var animation_stage = "-"
 
 
 func _process(delta):

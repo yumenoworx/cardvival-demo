@@ -16,45 +16,8 @@ var stream = null
 var overlapping_areas = []
 
 
-func _on_area_entered(_area):
-	overlapping_areas = get_overlapping_areas()
-	var saved_bodies = overlapping_areas
-	var saved_trees = []
-	for body in saved_bodies:
-		if body.get("tag"):
-			if body.tag == "Tree" and not body.died() and body.visible:
-				saved_trees.append(body)
-	print(saved_trees)
-	if saved_trees != []:
-		if saved_trees.size() >= 2:
-			saved_body = saved_trees[saved_trees.size()-1]
-			alt_body = saved_trees[saved_trees.size()-2]
-		else:
-			saved_body = saved_trees[0]
-	else:
-		saved_body = null
-
-
-func _on_area_exited(_area):
-	overlapping_areas = get_overlapping_areas()
-	var saved_bodies = overlapping_areas
-	var saved_trees = []
-	for body in saved_bodies:
-		if body.get("tag"):
-			if body.tag == "Tree" and not body.died() and body.visible:
-				saved_trees.append(body)
-	print(saved_trees)
-	if saved_trees != []:
-		if saved_trees.size() >= 2:
-			saved_body = saved_trees[saved_trees.size()-1]
-			alt_body = saved_trees[saved_trees.size()-2]
-		else:
-			saved_body = saved_trees[0]
-	else:
-		saved_body = null
-
-
 func _process(delta):
+	check_collision()
 	if saved_body and not dragging:
 		position = saved_body.position
 		saved_body.tool = self
@@ -75,6 +38,35 @@ func _process(delta):
 		if cooldown_time <= 0:
 			cooldown = false
 			cooldown_time = 3
+
+
+func check_collision():
+	var saved_bodies = get_overlapping_areas()
+	var saved_trees = []
+	for body in saved_bodies:
+		if body.get("tag"):
+			if body.tag == "Tree" and not body.died() and body.visible:
+				saved_trees.append(body)
+	if saved_trees != []:
+		if saved_trees.size() >= 2:
+			var fst = saved_trees[saved_trees.size()-1].position.x - position.x
+			var sec = position.x - saved_trees[saved_trees.size()-2].position.x
+			if saved_body != null and alt_body != null:
+				if fst != saved_body.position.x - position.x or fst != alt_body.position.x - position.x:
+					return
+				elif sec != saved_body.position.x - position.x or sec != alt_body.position.x - position.x:
+					return
+			print("{fst} - {sec}".format({"fst": fst, "sec": sec}))
+			if sec >= fst:
+				saved_body = saved_trees[saved_trees.size()-1]
+				alt_body = saved_trees[saved_trees.size()-2]
+			else:
+				saved_body = saved_trees[saved_trees.size()-2]
+				alt_body = saved_trees[saved_trees.size()-1]
+		else:
+			saved_body = saved_trees[0]
+	else:
+		saved_body = null
 
 
 func _on_input_event(_viewport, event, _shape_idx):

@@ -52,16 +52,16 @@ func _on_button_pressed():
 			var item = load(instance).instantiate()
 			get_tree().get_root().get_node("Main").get_node("Cards").add_child(item)
 			item.position = get_viewport().get_mouse_position()
-			send("Spawned: " + command.split(" ")[1])
+			send("Spawned: " + command.split(" ")[1] + " ({i})".format({"i": item.scene_file_path}))
 		"remove_instance":
 			var tags = []
 			for node in get_tree().get_root().get_node("Main").get_node("Cards").get_children(false):
 				var pos = node.position - get_viewport().get_mouse_position()
 				print(pos)
 				if pos.x >= -59 and pos.x <= 59 and pos.y >= -82 and pos.y <= 82:
-					tags.append(node.tag)
+					tags.append(node.tag + " ({i})".format({"i": node.scene_file_path}))
 					node.queue_free()
-			send("Deleted: " + str(tags))
+			send("Deleted: " + ", ".join(tags))
 		"clear":
 			$Output.text = ""
 			$TextEdit.clear()
@@ -71,7 +71,7 @@ func _on_button_pressed():
 
 
 func send(info: String):
-	if $Output.text.count("\n") == 26:
+	if $Output.text.find("\n") == 26:
 		$Output.text = ""
 	$Output.text = $Output.text + "\n" + $TextEdit.text + "\n>> " + info
 	$TextEdit.clear()

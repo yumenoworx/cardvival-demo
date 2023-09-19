@@ -10,7 +10,7 @@ var resource = null
 var tool = null
 var tag = "Tree"
 var timer = 5
-
+var immortal = false
 
 func _process(delta):
 	if global.location == "Forest":
@@ -42,11 +42,11 @@ func _process(delta):
 func died(): return hp <= 0
 
 
-func hit(strength): hp -= strength
+func hit(strength): if not immortal: hp -= strength
 
 func draw_hp():
-	if hp > 0: $HP.text = str(hp)
-	else: $HP.text = ""
+	$ProgressBar.max_value = 15
+	$ProgressBar.value = hp
 
 func drop_resource():
 	if not resource_dropped and died():

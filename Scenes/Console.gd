@@ -44,15 +44,19 @@ func _on_button_pressed():
 			send("Nobody help you.")
 		"spawn_instance":
 			var instance = null
-			match command.split(" ")[1]:
-				"tool": instance = "res://Scenes/Cards/Tool.tscn"
-				"location": instance = "res://Scenes/Cards/Location.tscn"
-				"resource": instance = "res://Scenes/Cards/Resource.tscn"
-				_: $Output.text = "spawn_instance [tool|location|resource]"; return
-			var item = load(instance).instantiate()
-			get_tree().get_root().get_node("Main").get_node("Cards").add_child(item)
-			item.position = get_viewport().get_mouse_position()
-			send("Spawned: " + command.split(" ")[1] + " ({i})".format({"i": item.scene_file_path}))
+			if command.split(" ").size() >= 2:
+				match command.split(" ")[1]:
+					"tool": instance = "res://Scenes/Cards/Tool.tscn"
+					"location": instance = "res://Scenes/Cards/Location.tscn"
+					"resource": instance = "res://Scenes/Cards/Resource.tscn"
+					_: send("spawn_instance [tool|location|resource]"); return
+				var item = load(instance).instantiate()
+				
+				get_tree().get_root().get_node("Main").get_node("Cards").add_child(item)
+				item.position = get_viewport().get_mouse_position()
+				send("Spawned: " + command.split(" ")[1] + " ({i})".format({"i": item.scene_file_path}))
+			else:
+				send("spawn_instance [tool|location|resource]")
 		"remove_instance":
 			var tags = []
 			for node in get_tree().get_root().get_node("Main").get_node("Cards").get_children(false):
@@ -66,6 +70,8 @@ func _on_button_pressed():
 			$Output.text = ""
 			$TextEdit.clear()
 			_on_text_edit_text_changed()
+		"lab":
+			get_tree().change_scene_to_file("res://Scenes/Laboratory.tscn")
 		_:
 			send(command + " command doesn't exist.")
 

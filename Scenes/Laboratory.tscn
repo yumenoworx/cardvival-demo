@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://cv1yy2y1jugha"]
+
+[ext_resource type="Script" path="res://Scenes/Laboratory.gd" id="1_h7ffm"]
+[ext_resource type="Texture2D" uid="uid://c2b5vikelg8s0" path="res://Sprites/testroom.png" id="1_o5tt3"]
+[ext_resource type="Script" path="res://Scenes/Console.gd" id="4_lxix4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nabdd"]
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7a5ae"]
+font_size = 32
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_h7ffm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.168627)
+texture_repeat = 2
+position = Vector2(683, 384)
+texture = ExtResource("1_o5tt3")
+region_enabled = true
+region_rect = Rect2(64, 64, 1472, 768)
+
+[node name="Location" type="Node2D" parent="."]
+
+[node name="Cards" type="Node2D" parent="."]
+
+[node name="Watermark" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Watermark"]
+offset_left = 78.0
+offset_top = 594.0
+offset_right = 460.0
+offset_bottom = 719.0
+text = "
+
+Github: github.com/natsvnxkaze/cardvival
+Telegram: t.me/natsunokaze"
+label_settings = SubResource("LabelSettings_nabdd")
+
+[node name="Label2" type="Label" parent="Watermark"]
+offset_left = 76.0
+offset_top = 584.0
+offset_right = 489.0
+offset_bottom = 632.0
+text = "Cardvival! New axe sounds 🎶"
+label_settings = SubResource("LabelSettings_7a5ae")
+
+[node name="Console" type="Node2D" parent="."]
+visible = false
+script = ExtResource("4_lxix4")
+
+[node name="TextEdit" type="TextEdit" parent="Console"]
+offset_left = 10.0
+offset_top = 39.0
+offset_right = 359.0
+offset_bottom = 69.0
+placeholder_text = "Command"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+middle_mouse_paste_enabled = false
+draw_control_chars = true
+draw_tabs = true
+draw_spaces = true
+caret_blink = true
+text_direction = 1
+language = "en"
+
+[node name="Button" type="Button" parent="Console"]
+offset_left = 362.0
+offset_top = 39.0
+offset_right = 438.0
+offset_bottom = 72.0
+text = "Enter???"
+expand_icon = true
+
+[node name="Output" type="Label" parent="Console"]
+offset_left = 26.0
+offset_top = 42.0
+offset_right = 452.0
+offset_bottom = 368.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Console"]
+
+[connection signal="text_changed" from="Console/TextEdit" to="Console" method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="Console/Button" to="Console" method="_on_button_pressed"]

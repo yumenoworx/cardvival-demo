@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cv1yy2y1jugha"]
+[gd_scene load_steps=11 format=3 uid="uid://cv1yy2y1jugha"]
 
 [ext_resource type="Script" path="res://Scenes/Laboratory.gd" id="1_h7ffm"]
 [ext_resource type="Texture2D" uid="uid://c2b5vikelg8s0" path="res://Sprites/testroom.png" id="1_o5tt3"]
 [ext_resource type="Texture2D" uid="uid://de6stj8dmhpc5" path="res://Sprites/circle.png" id="3_m5nxw"]
 [ext_resource type="Texture2D" uid="uid://0pyrt3s1nm42" path="res://Sprites/arrow.png" id="4_h4lvi"]
-[ext_resource type="Script" path="res://Scenes/Console.gd" id="4_lxix4"]
 [ext_resource type="AudioStream" uid="uid://do8xohhj72ngt" path="res://Sounds/Music/breaks.wav" id="4_ykods"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nabdd"]
@@ -111,43 +110,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Console" type="Node2D" parent="."]
-script = ExtResource("4_lxix4")
-
-[node name="TextEdit" type="TextEdit" parent="Console"]
-offset_left = 10.0
-offset_top = 39.0
-offset_right = 359.0
-offset_bottom = 69.0
-placeholder_text = "Command"
-context_menu_enabled = false
-shortcut_keys_enabled = false
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
-middle_mouse_paste_enabled = false
-draw_control_chars = true
-draw_tabs = true
-draw_spaces = true
-caret_blink = true
-text_direction = 1
-language = "en"
-
-[node name="Button" type="Button" parent="Console"]
-offset_left = 362.0
-offset_top = 39.0
-offset_right = 438.0
-offset_bottom = 72.0
-text = "Enter???"
-expand_icon = true
-
-[node name="Output" type="Label" parent="Console"]
-offset_left = 26.0
-offset_top = 42.0
-offset_right = 452.0
-offset_bottom = 368.0
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Console"]
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ykods")
 volume_db = -33.33
@@ -162,6 +124,7 @@ label_settings = SubResource("LabelSettings_bo0i5")
 horizontal_alignment = 1
 
 [node name="Name" type="Label" parent="Logo"]
+layout_mode = 0
 offset_left = -65.0
 offset_top = 13.0
 offset_right = 319.0
@@ -172,6 +135,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Links" type="Label" parent="Logo"]
+layout_mode = 0
 offset_left = -65.0
 offset_top = 142.0
 offset_right = 317.0
@@ -182,6 +146,4 @@ label_settings = SubResource("LabelSettings_nabdd")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="text_changed" from="Console/TextEdit" to="Console" method="_on_text_edit_text_changed"]
-[connection signal="pressed" from="Console/Button" to="Console" method="_on_button_pressed"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

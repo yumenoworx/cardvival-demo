@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://paeh5h0njko1"]
+[gd_scene load_steps=6 format=3 uid="uid://paeh5h0njko1"]
 
 [ext_resource type="Script" path="res://Scripts/LocationNode.gd" id="2_ichip"]
 [ext_resource type="Script" path="res://Scenes/Cards.gd" id="3_jpqe5"]
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="4"]
 [ext_resource type="Script" path="res://Scripts/url_open.gd" id="4_mv0ej"]
-[ext_resource type="Script" path="res://Scenes/Console.gd" id="6_nh0rq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqi1i"]
 size = Vector2(398, 22)
@@ -35,45 +34,6 @@ position = Vector2(209, 24)
 shape = SubResource("RectangleShape2D_vqi1i")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
-[node name="Console" type="Node2D" parent="."]
-script = ExtResource("6_nh0rq")
-
-[node name="TextEdit" type="TextEdit" parent="Console"]
-offset_left = 10.0
-offset_top = 39.0
-offset_right = 327.0
-offset_bottom = 69.0
-placeholder_text = "Command"
-context_menu_enabled = false
-shortcut_keys_enabled = false
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
-middle_mouse_paste_enabled = false
-draw_control_chars = true
-draw_tabs = true
-draw_spaces = true
-caret_blink = true
-text_direction = 1
-language = "en"
-
-[node name="Button" type="Button" parent="Console"]
-offset_left = 336.0
-offset_top = 36.0
-offset_right = 408.0
-offset_bottom = 69.0
-text = "Enter???"
-expand_icon = true
-
-[node name="Output" type="Label" parent="Console"]
-offset_left = 10.0
-offset_top = 47.0
-offset_right = 408.0
-offset_bottom = 373.0
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Console"]
-
 [connection signal="input_event" from="Watermark" to="Watermark" method="_on_input_event"]
 [connection signal="mouse_entered" from="Watermark" to="Watermark" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Watermark" to="Watermark" method="_on_mouse_exited"]
-[connection signal="text_changed" from="Console/TextEdit" to="Console" method="_on_text_edit_text_changed"]
-[connection signal="pressed" from="Console/Button" to="Console" method="_on_button_pressed"]

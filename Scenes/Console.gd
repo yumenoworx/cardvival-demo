@@ -1,5 +1,6 @@
 extends Node2D
 var command = ""
+var stream = null
 
 func _ready():
 	visible = false
@@ -25,10 +26,6 @@ func _on_text_edit_text_changed():
 	command = $TextEdit.text
 
 func _on_button_pressed():
-	$Button.text = utils.random_choice(["ヾ(•ω•`)o", "o((>ω< ))o", "o(≧∀≦)o", "ヾ(≧ ▽ ≦)ゝ"])
-	var stream = utils.random_choice(utils.get_files("res://Sounds/Inventory/slots/"))
-	$AudioStreamPlayer.stream = load(stream)
-	$AudioStreamPlayer.play()
 	if command == "" or command.replace(" ", "") == "" or command == null:
 		$TextEdit.text = utils.random_choice(["Hello world!", 
 											  "I divided the number by zero!",

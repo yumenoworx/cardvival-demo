@@ -5,6 +5,9 @@ func random_choice(array):
 
 
 func get_files(path):
+	if OS.has_feature("built"):
+		path = OS.get_executable_path().get_base_dir() + "/non-exported/"+ path.to_lower().replace("res://", "")
+		console.send(str(path))
 	var files = []
 	var dir = DirAccess.open(path)
 	dir.list_dir_begin()
@@ -12,6 +15,7 @@ func get_files(path):
 		var file = dir.get_next()
 		if file == "":
 			break
-		elif not file.begins_with(".") and not ".import" in file:
+		if not file.ends_with(".import"):
 			files.append(path + file)
+	console.send(str(files))
 	return files

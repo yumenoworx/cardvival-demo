@@ -28,6 +28,7 @@ global="*res://Scripts/Global.gd"
 inventory="*res://Scripts/Inventory.gd"
 utils="*res://Scripts/utils.gd"
 console="*res://Scenes/Console.tscn"
+AudioImport="*res://Scripts/AudioImport.gd"
 
 [display]
 

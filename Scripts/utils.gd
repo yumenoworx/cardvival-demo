@@ -17,4 +17,11 @@ func get_files(path):
 			break
 		if not file.ends_with(".import"):
 			files.append(path + file)
+			console.send(path + file)
 	return files
+
+func get_sound_from(path):
+	var file = FileAccess.open(path, FileAccess.READ)
+	var sound = AudioStreamWAV.new()
+	sound.data = file.get_buffer(file.get_length())
+	return sound

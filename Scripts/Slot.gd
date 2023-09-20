@@ -42,8 +42,12 @@ func _on_mouse_entered():
 	$Tag.visible = true
 	scale.x += 0.011
 	scale.y += 0.011
-	var stream = utils.random_choice(utils.get_files("res://Sounds/Inventory/slots/"))
-	print(stream)
+	var sounds = []
+	var i = 1
+	while i < 4:
+		sounds.append("res://Sounds/Inventory/Slots/select_%s.wav" % i)
+		i += 1
+	var stream = utils.random_choice(sounds)
 	$AudioStreamPlayer.stream = load(stream)
 	$AudioStreamPlayer.play()
 	if qty == -1:

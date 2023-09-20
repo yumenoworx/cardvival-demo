@@ -131,8 +131,13 @@ func on_rmb_pressed():
 func on_rmb_released():
 	$Sprite2D.scale.x = 0.32
 	$Sprite2D.scale.y = 0.32
+	var sounds = []
+	var i = 1
+	while i < 5:
+		sounds.append("res://Sounds/Cards/Tools/Axe/hit_%s.wav" % i)
+		i += 1
 	$AudioStreamPlayer2D.stop()
-	$AudioStreamPlayer2D.stream = load("res://Sounds/Inventory/put.mp3")
+	$AudioStreamPlayer2D.stream = load(sounds)
 	$AudioStreamPlayer2D.play()
 	var me = inventory.generate_item(tag, $Sprite2D.texture.resource_path, 
 									 -1, "tool", stats)

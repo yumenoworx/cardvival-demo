@@ -49,9 +49,8 @@ func _on_button_pressed():
 					"resource": instance = "res://Scenes/Cards/Resource.tscn"
 					_: send("spawn_card [tool|location|resource]"); return
 				var item = load(instance).instantiate()
-				
-				get_tree().get_root().get_node("Main").get_node("Cards").add_child(item)
 				item.position = get_viewport().get_mouse_position()
+				get_tree().get_root().get_node("Main").get_node("Cards").add_child(item)
 				send("Spawned: " + command.split(" ")[1] + " ({i})".format({"i": item.scene_file_path}))
 			else:
 				send("spawn_card [tool|location|resource]")

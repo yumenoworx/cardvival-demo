@@ -16,11 +16,13 @@ var put_down = false
 
 func _process(delta):
 	$Tag.text = tag
+	
 	if can_move:
 		move_to_front()
 		position = get_viewport().get_mouse_position() - grab
 		if position.x != old.x or position.y != old.y and dragging == false:
 			dragging = true
+			
 	if cooldown:
 		cooldown_time -= delta
 		if cooldown_time <= 0:
@@ -41,7 +43,7 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 			$AudioStreamPlayer2D.stop()
 			$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/up.mp3")
 			$AudioStreamPlayer2D.play()
-		if event.is_action_released("left_mb"):
+		elif event.is_action_released("left_mb"):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			var me = inventory.generate_item(tag, $Sprite2D.texture.resource_path, 1, "resource", null)
 			inventory.add_item(me, 1)

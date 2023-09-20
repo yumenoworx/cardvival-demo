@@ -18,6 +18,7 @@ scale = Vector2(0.22, 0.22)
 texture = ExtResource("1_oko5e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_gsih6")
 
 [node name="Qty" type="Label" parent="."]

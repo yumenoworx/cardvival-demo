@@ -1,16 +1,14 @@
 extends CharacterBody2D
 
 
-var tag = "Forest"
-var type = "location"
-var cooldown = false
-var cooldown_time = 3
-var can_move = false
-var dragging = false
-var stats = null
-var old = null
-var put_down = false
-var grab = null
+var tag = "Forest" # or card ID
+var type = "location" # item type
+var can_move = false # can the item be taken by the player? hmmm...
+var dragging = false # has the card moved even a pixel?
+var stats = null # item stats
+var old = null # old position of the card to determine its movement
+var put_down = false # whether the card is put down or not?
+var grab = null # card grab position
 
 func _ready():
 	print(tag)
@@ -19,8 +17,6 @@ func _process(delta):
 	if can_move:
 		move_to_front()
 		position = get_viewport().get_mouse_position() - grab
-		position.x = clamp(position.x, 0, 1366)
-		position.y = clamp(position.y, 0, 768)
 		var mouse_pos = get_viewport().get_mouse_position()
 		var window_size = get_viewport().size
 		if mouse_pos.x <= 0 or mouse_pos.x >= window_size.x or mouse_pos.y <= 0 or mouse_pos.y >= window_size.y:
@@ -28,11 +24,6 @@ func _process(delta):
 			on_lmb_released()
 		if position.x != old.x or position.y != old.y and dragging == false:
 			dragging = true
-	if cooldown:
-		cooldown_time -= delta
-		if cooldown_time <= 0:
-			cooldown = false
-			cooldown_time = 3
 
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
@@ -52,8 +43,7 @@ func on_lmb_pressed():
 	can_move = true
 	global.location_card_selected = self
 	move_to_front()
-	$Sprite2D.scale.x = 0.32 + 0.017
-	$Sprite2D.scale.y = 0.32 + 0.017
+	$Sprite2D.scale = Vector2($Sprite2D.scale.x+0.017, $Sprite2D.scale.y+0.017)
 	grab = get_viewport().get_mouse_position() - position
 	old = position
 	$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/up.mp3")
@@ -62,28 +52,30 @@ func on_lmb_pressed():
 
 
 func on_lmb_released():
-	put_down = true
-	can_move = false
-	dragging = false
+	reset_variables()
 	global.location_card_selected = null
-	$Sprite2D.scale.x = 0.32
-	$Sprite2D.scale.y = 0.32
+	$Sprite2D.scale = Vector2($Sprite2D.scale.x-0.017, $Sprite2D.scale.y-0.017)
 	$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/down.mp3")
 	$AudioStreamPlayer2D.play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
+func reset_variables():
+	put_down = true
+	can_move = false
+	dragging = false
+	global.location_card_selected = null
+
+
 func on_rmb_pressed():
-	$Sprite2D.scale.x = 0.32 + 0.017
-	$Sprite2D.scale.y = 0.32 + 0.017
+	$Sprite2D.scale = Vector2($Sprite2D.scale.x+0.017, $Sprite2D.scale.y+0.017)
 	$AudioStreamPlayer2D.stop()
 	$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/up.mp3")
 	$AudioStreamPlayer2D.play()
 
 
 func on_rmb_released():
-	$Sprite2D.scale.x = 0.32
-	$Sprite2D.scale.y = 0.32
+	$Sprite2D.scale = Vector2($Sprite2D.scale.x-0.017, $Sprite2D.scale.y-0.017)
 	global.location_card_selected = null
 	$AudioStreamPlayer2D.stop()
 	$AudioStreamPlayer2D.stream = load("res://Sounds/Inventory/put.mp3")

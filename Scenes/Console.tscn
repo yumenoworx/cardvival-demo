@@ -29,7 +29,4 @@ offset_top = 47.0
 offset_right = 408.0
 offset_bottom = 373.0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-
 [connection signal="text_changed" from="TextEdit" to="." method="_on_text_edit_text_changed"]
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

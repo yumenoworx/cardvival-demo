@@ -4,6 +4,7 @@ extends Area2D
 var saved_body = null
 var first_attack = false
 var hp = 15
+var max_hp = 15
 var recovery_time = 5 
 var resource_dropped = false
 var resource = null
@@ -12,6 +13,9 @@ var tag = "Tree"
 var timer = 5
 var immortal = false
 
+func _ready():
+	print($Sprite2D.texture.get_size() * 0.32)
+	print($Sprite2D.texture.get_size() * 0.337)
 func _process(delta):
 	if global.location == "Forest":
 		visible = true
@@ -42,23 +46,25 @@ func _process(delta):
 func died(): 
 	if hp <= 0 and immortal:
 		hp = 15
-		return hp <= 0
 	return hp <= 0
 
 
 func hit(strength): hp -= strength
 
+
 func draw_hp():
-	$ProgressBar.max_value = 15
+	$ProgressBar.max_value = max_hp
 	$ProgressBar.value = hp
+	$HP.text = str(hp)
+
 
 func drop_resource():
 	if not resource_dropped and died():
 		resource = load("res://Scenes/Cards/Resource.tscn").instantiate()
-		get_tree().get_root().get_node("Main").get_node("Cards").add_child(resource)
 		resource.position = global_position
 		resource.tag = "Log"
 		resource_dropped = true
+		get_tree().get_root().get_node("Main").get_node("Cards").add_child(resource)
 		return resource
 
 

@@ -1,9 +1,16 @@
 [gd_scene load_steps=6 format=3 uid="uid://paeh5h0njko1"]
 
 [ext_resource type="Script" path="res://Scripts/LocationNode.gd" id="2_ichip"]
-[ext_resource type="Script" path="res://Scenes/Cards.gd" id="3_jpqe5"]
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="4"]
 [ext_resource type="Script" path="res://Scripts/url_open.gd" id="4_mv0ej"]
+
+[sub_resource type="GDScript" id="GDScript_ivjn1"]
+script/source = "extends Node2D
+
+
+func _ready():
+	print(get_tree().get_root().get_node(\"Main\").get_node(\"Cards\"))
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqi1i"]
 size = Vector2(398, 22)
@@ -15,7 +22,7 @@ script = ExtResource("4")
 script = ExtResource("2_ichip")
 
 [node name="Cards" type="Node2D" parent="."]
-script = ExtResource("3_jpqe5")
+script = SubResource("GDScript_ivjn1")
 
 [node name="Inventory" type="Node2D" parent="."]
 

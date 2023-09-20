@@ -1,27 +1,27 @@
 extends Area2D
 
-
-var grab = 0
-var tag = "Axe"
-var cooldown = false
-var cooldown_time = 3
-var can_move = false
-var dragging = false
-var old = null
-var put_down = false
-var saved_body = null
-var alt_body = null
-var stats = {"strength": 3}
 var stream = null
 var overlapping_areas = []
-var chance = 0.1
+
+var tag = "Axe" # or card ID
+var can_move = false # can the item be taken by the player? hmmm...
+var stats = {"strength": 3} # item stats
+var dragging = false # has the card moved even a pixel?
+var old = null # old position of the card to determine its movement
+var put_down = false # whether the card is put down or not?
+var grab = null # card grab position
+var main_body = null # the main body to be hit 100% of the time
+var alt_body = null # an alt body to be hit {chance}% of the time
+var chance = 0.1 #chance of hitting the second object
 
 
-func _process(delta):
+func _process(_delta):
 	check_collision()
-	if saved_body and not dragging:
-		position = saved_body.position
-		saved_body.tool = self
+	
+	if main_body and not dragging:
+		position = main_body.position
+		main_body.tool = self
+		
 	if can_move:
 		move_to_front()
 		position = get_viewport().get_mouse_position() - grab
@@ -34,11 +34,6 @@ func _process(delta):
 			on_lmb_released()
 		if position.x != old.x or position.y != old.y:
 			dragging = true
-	if cooldown:
-		cooldown_time -= delta
-		if cooldown_time <= 0:
-			cooldown = false
-			cooldown_time = 3
 
 
 func check_collision():
@@ -48,26 +43,27 @@ func check_collision():
 		if body.get("tag"):
 			if body.tag == "Tree" and not body.died() and body.visible:
 				saved_trees.append(body)
+				
 	if saved_trees != []:
 		if saved_trees.size() >= 2:
-			var fst = saved_trees[saved_trees.size()-1].position.x - position.x
-			var sec = position.x - saved_trees[saved_trees.size()-2].position.x
-			if saved_body != null and alt_body != null:
-				if fst != saved_body.position.x - position.x or fst != alt_body.position.x - position.x:
+			var fst = saved_trees[saved_trees.size()-1].position - position
+			var sec = position - saved_trees[saved_trees.size()-2].position
+			if main_body != null and alt_body != null:
+				if fst != main_body.position - position or fst != alt_body.position - position:
 					return
-				elif sec != saved_body.position.x - position.x or sec != alt_body.position.x - position.x:
+				elif sec != main_body.position - position or sec != alt_body.position - position:
 					return
 			print("{fst} - {sec}".format({"fst": fst, "sec": sec}))
 			if sec >= fst:
-				saved_body = saved_trees[saved_trees.size()-1]
+				main_body = saved_trees[saved_trees.size()-1]
 				alt_body = saved_trees[saved_trees.size()-2]
 			else:
-				saved_body = saved_trees[saved_trees.size()-2]
+				main_body = saved_trees[saved_trees.size()-2]
 				alt_body = saved_trees[saved_trees.size()-1]
 		else:
-			saved_body = saved_trees[0]
+			main_body = saved_trees[0]
 	else:
-		saved_body = null
+		main_body = null
 
 
 func _on_input_event(_viewport, event, _shape_idx):
@@ -86,8 +82,7 @@ func on_lmb_pressed():
 	put_down = false
 	can_move = true
 	move_to_front()
-	$Sprite2D.scale.x = 0.32 + 0.017
-	$Sprite2D.scale.y = 0.32 + 0.017
+	$Sprite2D.scale = Vector2($Sprite2D.scale.x+0.017, $Sprite2D.scale.y+0.017)
 	grab = get_viewport().get_mouse_position() - position
 	old = position
 	$AudioStreamPlayer2D.stop()
@@ -100,15 +95,14 @@ func on_lmb_released():
 	put_down = true
 	can_move = false
 	dragging = false
-	$Sprite2D.scale.x = 0.32
-	$Sprite2D.scale.y = 0.32
+	$Sprite2D.scale = Vector2($Sprite2D.scale.x-0.017, $Sprite2D.scale.y-0.017)
 	if alt_body != null:
 		if randf_range(0, 1) < chance:
 			damage_body(alt_body)
 		alt_body = null
-	if saved_body != null:
-		damage_body(saved_body)
-		if saved_body.died():
+	if main_body != null:
+		damage_body(main_body)
+		if main_body.died():
 			var me = inventory.generate_item(tag, 
 											 $Sprite2D.texture.resource_path,
 											 -1, "tool", stats)
@@ -121,23 +115,16 @@ func on_lmb_released():
 
 
 func on_rmb_pressed():
-	$Sprite2D.scale.x = 0.32 + 0.017
-	$Sprite2D.scale.y = 0.32 + 0.017
+	$Sprite2D.scale = Vector2($Sprite2D.scale.x+0.017, $Sprite2D.scale.y+0.017)
 	$AudioStreamPlayer2D.stop()
 	$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/up.mp3")
 	$AudioStreamPlayer2D.play()
 
 
 func on_rmb_released():
-	$Sprite2D.scale.x = 0.32
-	$Sprite2D.scale.y = 0.32
-	var sounds = []
-	var i = 1
-	while i < 5:
-		sounds.append("res://Sounds/Cards/Tools/Axe/hit_%s.wav" % i)
-		i += 1
+	$Sprite2D.scale = Vector2($Sprite2D.scale.x-0.017, $Sprite2D.scale.y-0.017)
 	$AudioStreamPlayer2D.stop()
-	$AudioStreamPlayer2D.stream = load(sounds)
+	$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/down.mp3")
 	$AudioStreamPlayer2D.play()
 	var me = inventory.generate_item(tag, $Sprite2D.texture.resource_path, 
 									 -1, "tool", stats)
@@ -154,10 +141,7 @@ func damage_body(body):
 
 
 func _on_mouse_entered():
-	if not cooldown:
-		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
-	else:
-		Input.set_default_cursor_shape(Input.CURSOR_WAIT)
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 
 
 func _on_mouse_exited():
@@ -167,5 +151,5 @@ func _on_mouse_exited():
 func _on_audio_stream_player_2d_finished():
 	if $AudioStreamPlayer2D.stream.resource_path == "res://Sounds/Inventory/put.mp3":
 		queue_free()
-	elif saved_body != null and saved_body.died():
+	elif main_body != null and main_body.died():
 		queue_free()

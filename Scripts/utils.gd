@@ -17,5 +17,4 @@ func get_files(path):
 			break
 		if not file.ends_with(".import"):
 			files.append(path + file)
-	console.send(str(files))
 	return files

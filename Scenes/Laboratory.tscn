@@ -112,14 +112,14 @@ autowrap_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ykods")
-volume_db = -33.33
+volume_db = -30.3
 autoplay = true
 
 [node name="Logo" type="Label" parent="."]
 visible = false
 offset_right = 252.0
 offset_bottom = 197.0
-text = "Update 1.1.1"
+text = "Update Alpha 1.1.1"
 label_settings = SubResource("LabelSettings_bo0i5")
 horizontal_alignment = 1
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq7h6aopytbs7"
-path="res://.godot/imported/telegram-icone-icon-487914085.png-c6c91dff04168f69112c08654a37d8c4.ctex"
+uid="uid://0pyrt3s1nm42"
+path="res://.godot/imported/arrow.png-5405b2f4a5090f6ebaea005362d7d52b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/telegram-icone-icon-487914085.png"
-dest_files=["res://.godot/imported/telegram-icone-icon-487914085.png-c6c91dff04168f69112c08654a37d8c4.ctex"]
+source_file="res://Sprites/arrow.png"
+dest_files=["res://.godot/imported/arrow.png-5405b2f4a5090f6ebaea005362d7d52b.ctex"]
 
 [params]
 

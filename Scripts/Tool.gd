@@ -14,6 +14,7 @@ var alt_body = null
 var stats = {"strength": 3}
 var stream = null
 var overlapping_areas = []
+var chance = 0.1
 
 
 func _process(delta):
@@ -102,7 +103,7 @@ func on_lmb_released():
 	$Sprite2D.scale.x = 0.32
 	$Sprite2D.scale.y = 0.32
 	if alt_body != null:
-		if randf_range(0, 1) < 0.1:
+		if randf_range(0, 1) < chance:
 			damage_body(alt_body)
 		alt_body = null
 	if saved_body != null:

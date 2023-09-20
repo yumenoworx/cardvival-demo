@@ -16,7 +16,8 @@ func _process(_delta):
 		$TextEdit.editable = false
 		_on_text_edit_text_changed()
 	if Input.is_action_just_pressed("enter"):
-		_on_button_pressed()
+		if visible:
+			_on_button_pressed()
 
 func _on_text_edit_text_changed():
 	$TextEdit.text = $TextEdit.text.replace("\n", "").replace("`", "")
@@ -77,7 +78,7 @@ func _on_button_pressed():
 
 
 func send(info: String):
-	if $Output.text.find("\n") == 26:
+	if $Output.text.find("\n") >= 26:
 		$Output.text = ""
 	$Output.text = $Output.text + "\n" + $TextEdit.text + "\n>> " + info
 	$TextEdit.clear()

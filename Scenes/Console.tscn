@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddp10p7w66cp4"]
+
+[ext_resource type="Script" path="res://Scenes/Console.gd" id="1_e30v8"]
+
+[node name="Console" type="Node2D"]
+script = ExtResource("1_e30v8")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 10.0
+offset_top = 39.0
+offset_right = 410.0
+offset_bottom = 69.0
+placeholder_text = "Command"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+middle_mouse_paste_enabled = false
+draw_control_chars = true
+draw_tabs = true
+draw_spaces = true
+caret_blink = true
+text_direction = 1
+language = "en"
+
+[node name="Output" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 47.0
+offset_right = 408.0
+offset_bottom = 373.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="text_changed" from="TextEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

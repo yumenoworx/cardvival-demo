@@ -1,12 +1,16 @@
 extends Area2D
 var saved_body = null
-
-func _ready():
-	pass # Replace with function body.
+var default_position 
+var animation_stage = "-"
 
 
 func _process(delta):
-	if saved_body != null and not saved_body.dragging:
+	if global.location_card_selected:
+		$LocationCardSprite.visible = true
+		$LocationCardSprite.texture = global.location_card_selected.get_node("Sprite2D").texture
+	else:
+		$LocationCardSprite.visible = false
+	if saved_body != null and saved_body.visible and not saved_body.dragging:
 		$Sprite2D.visible = false
 		if $LocationName.text == "??????":
 			position.y -= 176
@@ -15,6 +19,8 @@ func _process(delta):
 		if $AudioStreamPlayer.playing == false:
 			$AudioStreamPlayer.play()
 	else:
+		if not $Sprite2D.visible:
+			position.y += 176
 		$Sprite2D.visible = true
 	if global.location != null:
 		$LocationName.text = global.location
@@ -29,8 +35,9 @@ func _on_Area2D_body_entered(body):
 
 
 func _on_Area2D_body_exited(body):
-	if body.tag == "Forest" and body.position != global_position:
+	if body.tag == "Forest" and body.position  != global_position:
 		global.location = null
 		saved_body = null
-		position.y += 176
+		if position.y != 768/2:
+			position.y += 176
 		$AudioStreamPlayer.stop()

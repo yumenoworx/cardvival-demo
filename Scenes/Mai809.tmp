@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://paeh5h0njko1"]
+
+[ext_resource type="Script" path="res://Scripts/LocationNode.gd" id="2_ichip"]
+[ext_resource type="Script" path="res://Scenes/Cards.gd" id="3_jpqe5"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="4"]
+[ext_resource type="Script" path="res://Scenes/url_open.gd" id="4_10ux7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqi1i"]
+size = Vector2(115, 18)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("4")
+
+[node name="Location" type="Node2D" parent="."]
+script = ExtResource("2_ichip")
+
+[node name="Cards" type="Node2D" parent="."]
+script = ExtResource("3_jpqe5")
+
+[node name="Inventory" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("4_10ux7")
+
+[node name="Label" type="Label" parent="Area2D"]
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 466.0
+offset_bottom = 43.0
+text = "Cardvival! Official Telegram channel: @natsunokaze"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(382.5, 24)
+shape = SubResource("RectangleShape2D_vqi1i")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

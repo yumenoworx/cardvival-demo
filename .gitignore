@@ -1,2 +1,6 @@
-
-.mono/metadata/ide_messaging_meta.txt
+.mono
+.mono/*
+.godot/editor
+.godot/editor/*
+*.cfg
+!export_presets.cfg

@@ -1,17 +1,15 @@
 extends CharacterBody2D
 
 
-var grab_x = 0
-var grab_y = 0
+var grab = null
 
 var tag = "Log"
 var cooldown = false
 var cooldown_time = 3
 var can_move = false
 var dragging = false
-
-var old_x = 0
-var old_y = 0
+var stats = null
+var old = null
 
 var put_down = false
 
@@ -20,9 +18,8 @@ func _process(delta):
 	$Tag.text = tag
 	if can_move:
 		move_to_front()
-		position.x = get_viewport().get_mouse_position().x - grab_x
-		position.y = get_viewport().get_mouse_position().y - grab_y
-		if position.x != old_x or position.y != old_y and dragging == false:
+		position = get_viewport().get_mouse_position() - grab
+		if position.x != old.x or position.y != old.y and dragging == false:
 			dragging = true
 	if cooldown:
 		cooldown_time -= delta
@@ -36,12 +33,10 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 		if event.is_action_pressed("left_mb"):
 			put_down = false
 			can_move = true
-			$Sprite2D.scale.x = 0.32 + 0.017
-			$Sprite2D.scale.y = 0.32 + 0.017
-			grab_x = get_viewport().get_mouse_position().x - position.x
-			grab_y = get_viewport().get_mouse_position().y - position.y
-			old_x = position.x
-			old_y = position.y
+			$Sprite2D.scale.x += 0.017
+			$Sprite2D.scale.y += 0.017
+			grab = get_viewport().get_mouse_position() - position
+			old = position
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 			$AudioStreamPlayer2D.stop()
 			$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/up.mp3")

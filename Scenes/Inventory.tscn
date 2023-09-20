@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn8l0b5p3f3o3"]
+
+[ext_resource type="Script" path="res://Scenes/Console.gd" id="1_e30v8"]
+
+[node name="Console" type="Node2D"]
+script = ExtResource("1_e30v8")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 10.0
+offset_top = 39.0
+offset_right = 327.0
+offset_bottom = 69.0
+placeholder_text = "Command"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+middle_mouse_paste_enabled = false
+draw_control_chars = true
+draw_tabs = true
+draw_spaces = true
+caret_blink = true
+text_direction = 1
+language = "en"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 336.0
+offset_top = 36.0
+offset_right = 408.0
+offset_bottom = 69.0
+text = "Enter???"
+expand_icon = true
+
+[node name="Output" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 47.0
+offset_right = 408.0
+offset_bottom = 373.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="text_changed" from="TextEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

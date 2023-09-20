@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxiom48fno2g"]
+[gd_scene load_steps=5 format=3 uid="uid://bxiom48fno2g"]
 
-[ext_resource type="Script" path="res://Scenes/Cards/Slot.gd" id="1_f7y26"]
 [ext_resource type="Texture2D" uid="uid://snxx276cy6cu" path="res://Sprites/forest.png" id="1_oko5e"]
+[ext_resource type="Script" path="res://Scripts/Slot.gd" id="1_p3u57"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gsih6"]
 size = Vector2(84, 112)
 
+[sub_resource type="LabelSettings" id="LabelSettings_wql1j"]
+font_size = 13
+font_color = Color(0, 0, 0, 1)
+
 [node name="Slot" type="Area2D"]
-script = ExtResource("1_f7y26")
+script = ExtResource("1_p3u57")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.22, 0.22)
@@ -17,21 +21,27 @@ texture = ExtResource("1_oko5e")
 shape = SubResource("RectangleShape2D_gsih6")
 
 [node name="Qty" type="Label" parent="."]
-offset_left = -43.0
-offset_top = -83.0
-offset_right = 43.0
-offset_bottom = -57.0
+offset_left = -39.0
+offset_top = -56.0
+offset_right = 36.0
+offset_bottom = -30.0
 text = "x32"
+label_settings = SubResource("LabelSettings_wql1j")
 horizontal_alignment = 2
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Tag" type="Label" parent="."]
-offset_left = -42.0
-offset_top = -85.0
-offset_right = 15.0
-offset_bottom = -55.0
+offset_left = -41.0
+offset_top = -89.0
+offset_right = 41.0
+offset_bottom = -59.0
 text = "forest"
+horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

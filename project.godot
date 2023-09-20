@@ -12,25 +12,32 @@ config_version=5
 
 config/name="Cardvival!"
 config/name_localized={
-"ja": "Subscribe to my telegram channel: @natsunokaze"
+"ja": "Cardvival! こんにちは！"
 }
 run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.1")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
 boot_splash/show_image=false
+boot_splash/fullsize=false
 boot_splash/use_filter=false
+config/icon="res://icon.png"
 
 [autoload]
 
 global="*res://Scripts/Global.gd"
 inventory="*res://Scripts/Inventory.gd"
+utils="*res://Scripts/utils.gd"
+console="*res://Scenes/Console.tscn"
+AudioImport="*res://Scripts/AudioImport.gd"
 
 [display]
 
 window/size/viewport_width=1366
 window/size/viewport_height=768
 window/size/resizable=false
+window/stretch/mode="viewport"
 window/per_pixel_transparency/allowed=true
+window/handheld/orientation=1
 window/vsync/vsync_mode=2
 
 [global]
@@ -52,6 +59,16 @@ left_mb={
 right_mb={
 "deadzone": 0.5,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+enter={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194309,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+console={
+"deadzone": 0.5,
+"events": [null, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":96,"key_label":0,"unicode":96,"echo":false,"script":null)
 ]
 }
 

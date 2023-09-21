@@ -55,7 +55,7 @@ func hit(strength): hp -= strength
 func draw_hp():
 	$ProgressBar.max_value = max_hp
 	$ProgressBar.value = hp
-	$HP.text = str(hp)
+	$ProgressBar.get_node("HP").text = str(hp)
 
 
 func drop_resource():
@@ -70,7 +70,7 @@ func drop_resource():
 
 func reset_state():
 	timer = 5
-	hp = 15
+	hp = max_hp
 	$Sprite2D.modulate.a = 1
 	$Sprite2D.visible = true
 	visible = true

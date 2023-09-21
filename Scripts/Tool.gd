@@ -54,6 +54,7 @@ func check_collision():
 				elif sec != main_body.position - position or sec != alt_body.position - position:
 					return
 			print("{fst} - {sec}".format({"fst": fst, "sec": sec}))
+			# 
 			if sec >= fst:
 				main_body = saved_trees[saved_trees.size()-1]
 				alt_body = saved_trees[saved_trees.size()-2]

@@ -13,9 +13,7 @@ var tag = "Tree"
 var timer = 5
 var immortal = false
 
-func _ready():
-	print($Sprite2D.texture.get_size() * 0.32)
-	print($Sprite2D.texture.get_size() * 0.337)
+
 func _process(delta):
 	if global.location == "Forest":
 		visible = true

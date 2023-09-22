@@ -33,10 +33,9 @@ console="*res://Scenes/Console.tscn"
 
 window/size/viewport_width=1366
 window/size/viewport_height=768
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/per_pixel_transparency/allowed=true
-window/handheld/orientation=1
 window/vsync/vsync_mode=2
 
 [global]

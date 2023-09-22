@@ -1,8 +1,14 @@
 extends Area2D
 var pcursor = Input.get_current_cursor_shape()
 
+
 func _ready():
 	modulate.a = 0.5
+
+
+func _process(delta):
+	print(get_viewport().size)
+	position = Vector2(11, 11)
 
 
 func _on_mouse_entered():

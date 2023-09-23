@@ -25,10 +25,10 @@ func _process(_delta):
 	if can_move:
 		move_to_front()
 		position = get_viewport().get_mouse_position() - grab
-		position.x = clamp(position.x, 0, 1366)
-		position.y = clamp(position.y, 0, 768)
 		var mouse_pos = get_viewport().get_mouse_position()
-		var window_size = get_viewport().size
+		var window_size = global.resolution
+		position.x = clamp(position.x, 0, window_size.x)
+		position.y = clamp(position.y, 0, window_size.y)
 		if mouse_pos.x <= 0 or mouse_pos.x >= window_size.x or mouse_pos.y <= 0 or mouse_pos.y >= window_size.y:
 			Input.action_release("left_mb")
 			on_lmb_released()
@@ -37,6 +37,7 @@ func _process(_delta):
 
 
 func check_collision():
+	move_to_front()
 	var saved_bodies = get_overlapping_areas()
 	var saved_trees = []
 	for body in saved_bodies:
@@ -82,7 +83,6 @@ func _on_input_event(_viewport, event, _shape_idx):
 func on_lmb_pressed():
 	put_down = false
 	can_move = true
-	move_to_front()
 	$Sprite2D.scale = Vector2($Sprite2D.scale.x+0.017, $Sprite2D.scale.y+0.017)
 	grab = get_viewport().get_mouse_position() - position
 	old = position

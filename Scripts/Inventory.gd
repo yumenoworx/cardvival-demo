@@ -5,6 +5,8 @@ var location = null
 var inventory = []
 var old_inventory = []
 var need_update = false
+var x = 0
+var y = 0
 
 
 func _ready():
@@ -15,6 +17,7 @@ func _ready():
 
 func _process(_delta): # update inventory
 	if inventory != old_inventory or need_update:
+		var resolution = global.resolution
 		var slots = get_tree().get_root().get_node("Main").get_node("Inventory").get_children()
 		if slots != []:
 			for slot in slots:
@@ -35,10 +38,11 @@ func _process(_delta): # update inventory
 			var sprite = slot.get_node("Sprite2D").texture.get_width() * slot.get_node("Sprite2D").get_scale().x
 			# set inventory slot position on screen:
 			if len(inventory) != 1:
-				slot.position.x = (1366 - get_x_with_gap(len(inventory) + 1, sprite)) / 2 + get_x_with_gap(i, sprite)
+				x = (resolution.x - get_x_with_gap(len(inventory) + 1, sprite)) / 2 + get_x_with_gap(i, sprite)
 			else:
-				slot.position.x = 1366 /2
-			slot.position.y = 768 - 64
+				x = resolution.x / 2
+			y = resolution.y - 64
+			slot.position = Vector2(x, y)
 			get_tree().get_root().get_node("Main").get_node("Inventory").add_child(slot)
 		need_update = false
 		old_inventory.assign(inventory)

@@ -4,7 +4,7 @@ var default_position
 var animation_stage = "-"
 
 
-func _process(delta):
+func _process(_delta):
 	if global.location_card_selected:
 		$LocationCardSprite.visible = true
 		$LocationCardSprite.texture = global.location_card_selected.get_node("Sprite2D").texture
@@ -19,8 +19,6 @@ func _process(delta):
 		if $AudioStreamPlayer.playing == false:
 			$AudioStreamPlayer.play()
 	else:
-		if not $Sprite2D.visible:
-			position.y += 176
 		$Sprite2D.visible = true
 	if global.location != null:
 		$LocationName.text = global.location
@@ -38,6 +36,6 @@ func _on_Area2D_body_exited(body):
 	if body.tag == "Forest" and body.position  != global_position:
 		global.location = null
 		saved_body = null
-		if position.y != 768/2:
+		if position.y != global.resolution.y/2:
 			position.y += 176
 		$AudioStreamPlayer.stop()

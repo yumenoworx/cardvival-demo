@@ -5,17 +5,19 @@ var new_spawner = null
 
 
 func _ready():
+	var resolution = global.resolution
 	var i = 0
 	while i < slots_count:
 		i += 1
 		var spawner = load("res://Scenes/LocationObjectCards/Tree.tscn").instantiate()
-		add_child(spawner)
 		var sp_sprite = spawner.get_node("Sprite2D")
 		var sp_width = sp_sprite.texture.get_width() * sp_sprite.get_scale().x
-		spawner.position.x = (1366 - get_x_with_gap(slots_count + 1, sp_width)) / 2 + get_x_with_gap(i, sp_width)
-		spawner.position.y = 768 / 2
+		var x = (resolution.x - get_x_with_gap(slots_count + 1, sp_width)) / 2 + get_x_with_gap(i, sp_width)
+		var y = resolution.y / 2
+		spawner.position = Vector2(x, y)
+		add_child(spawner)
 	var location = load("res://Scenes/LocationObjectCards/LocationHolder.tscn").instantiate()
-	location.position = Vector2(1366, 768)/2
+	location.position = resolution / 2
 	add_child(location)
 	
 

@@ -13,12 +13,14 @@ var grab = null # card grab position
 func _ready():
 	print(tag)
 
-func _process(delta):
+func _process(_delta):
 	if can_move:
 		move_to_front()
 		position = get_viewport().get_mouse_position() - grab
 		var mouse_pos = get_viewport().get_mouse_position()
-		var window_size = get_viewport().size
+		var window_size = global.resolution
+		position.x = clamp(position.x, 0, window_size.x)
+		position.y = clamp(position.y, 0, window_size.y)
 		if mouse_pos.x <= 0 or mouse_pos.x >= window_size.x or mouse_pos.y <= 0 or mouse_pos.y >= window_size.y:
 			Input.action_release("left_mb")
 			on_lmb_released()
@@ -26,7 +28,7 @@ func _process(delta):
 			dragging = true
 
 
-func _on_Area2D_input_event(viewport, event, shape_idx):
+func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if event.is_action_pressed("left_mb"):
 			on_lmb_pressed()
@@ -52,12 +54,12 @@ func on_lmb_pressed():
 
 
 func on_lmb_released():
-	reset_variables()
 	global.location_card_selected = null
 	$Sprite2D.scale = Vector2($Sprite2D.scale.x-0.017, $Sprite2D.scale.y-0.017)
 	$AudioStreamPlayer2D.stream = load("res://Sounds/Cards/down.mp3")
 	$AudioStreamPlayer2D.play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	reset_variables()
 
 
 func reset_variables():

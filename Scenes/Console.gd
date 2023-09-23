@@ -7,6 +7,7 @@ func _ready():
 	$Output.text = ""
 
 func _process(_delta):
+	position =  Vector2(11, 11)
 	if Input.is_action_just_pressed("console") and not visible:
 		visible = true
 		$TextEdit.clear()
@@ -74,7 +75,7 @@ func _on_button_pressed():
 
 
 func send(info: String):
-	if $Output.text.find("\n") >= 26:
+	if $Output.get_visible_line_count() >= 26:
 		$Output.text = ""
 	$Output.text = $Output.text + "\n" + $TextEdit.text + "\n>> " + info
 	$TextEdit.clear()

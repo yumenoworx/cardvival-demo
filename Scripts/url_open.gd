@@ -8,8 +8,7 @@ func _ready():
 
 func _process(delta):
 	print(get_viewport().size)
-	position = Vector2(11, 11)
-
+	global_position = Vector2(11, 11)
 
 func _on_mouse_entered():
 	modulate.a = 1

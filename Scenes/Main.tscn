@@ -42,7 +42,9 @@ shape = SubResource("RectangleShape2D_vqi1i")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(683, 384)
+anchor_mode = 0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [connection signal="input_event" from="Watermark" to="Watermark" method="_on_input_event"]
 [connection signal="mouse_entered" from="Watermark" to="Watermark" method="_on_mouse_entered"]
